@@ -18,8 +18,12 @@ Photos must be inside the repo, because macOS blocks this terminal from
 reading `~/Desktop` and `~/Downloads`. Ask Tim to run:
 
 ```sh
-! mv ~/Desktop/"<Folder Name>" ~/Code/Weird300/inbox/
+mkdir -p ~/Code/Weird300/inbox && open ~/Code/Weird300/inbox
 ```
+
+That opens the inbox in Finder; Tim drags the folder in. Do not hand him a
+`mv` with the folder name typed out: Finder names often differ from what he
+says (the Fingal's Cave folder was really `Fingals Cave`).
 
 A Google Maps short link resolves with
 `curl -sIL <link> | /usr/bin/grep -i ^location`; the `!3d<lat>!4d<lng>`
