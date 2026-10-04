@@ -29,6 +29,11 @@
   font-size: 0.95rem;
   margin-left: 1.25rem;
   &:hover { color: var(--ink); }
+  &[aria-current="page"] { color: var(--ink); font-weight: 600; }
+}
+
+@media (max-width: 30rem) {
+  .site-header nav a { margin-left: 0.9rem; font-size: 0.9rem; }
 }
 
 .site-footer {

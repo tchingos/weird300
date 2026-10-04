@@ -1,10 +1,14 @@
+{%- comment -%} Site header. The current section's link gets aria-current for styling. {%- endcomment -%}
+{% assign in_places = false %}
+{% if page.collection == "places" or page.url == "/places/" %}{% assign in_places = true %}{% endif %}
 <header class="site-header">
   <div class="site-header-inner">
     <a class="wordmark" href="{{ '/' | relative_url }}">Weird<span>300</span></a>
     <nav>
-      <a href="{{ '/places/' | relative_url }}">Places</a>
+      <a href="{{ '/' | relative_url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
+      <a href="{{ '/places/' | relative_url }}"{% if in_places %} aria-current="page"{% endif %}>Places</a>
       <a href="{{ '/' | relative_url }}#map">Map</a>
-      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
     </nav>
   </div>
 </header>
