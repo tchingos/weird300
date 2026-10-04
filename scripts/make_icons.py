@@ -2,7 +2,7 @@
 # requires-python = ">=3.11"
 # dependencies = ["pillow>=11"]
 # ///
-"""Draw the site icon: a basalt-column hexagon with a googly eye.
+"""Draw the site icon: a map pin.
 
     uv run scripts/make_icons.py
 
@@ -18,29 +18,30 @@ from PIL import Image, ImageDraw
 OUT = Path(__file__).resolve().parent.parent / "assets" / "icons"
 GRID = 64  # every shape is defined on a 64x64 grid
 
-TEAL, DARK, WHITE = "#0f766e", "#111418", "#ffffff"
-HEX_RADIUS = 31
-EYE = (32, 33, 15)  # centre x, centre y, radius
-PUPIL = (37, 37, 7.5)  # off-centre, so the eye looks a bit sideways
-GLINT = (39.5, 34, 2.2)
+TEAL, WHITE = "#0f766e", "#ffffff"
+HEAD = (32, 24, 20)  # the pin's round head: centre x, centre y, radius
+TIP = (32, 61)  # the point of the pin
+DOT = (32, 24, 8)  # the white hole in the head
 
 
-def hexagon(scale: float = 1.0) -> list[tuple[float, float]]:
-    """Flat-topped hexagon, like the top of a basalt column."""
-    return [
-        (scale * (32 + HEX_RADIUS * math.cos(math.radians(a))), scale * (32 + HEX_RADIUS * math.sin(math.radians(a))))
-        for a in range(0, 360, 60)
-    ]
+def tangents() -> tuple[tuple[float, float], tuple[float, float]]:
+    """Where straight lines from the tip touch the head, so the pin's sides are smooth."""
+    cx, cy, r = HEAD
+    d = TIP[1] - cy
+    a = math.acos(r / d)  # angle at the head's centre between the tip and a tangent point
+    left = (cx - r * math.sin(a), cy + r * math.cos(a))
+    right = (cx + r * math.sin(a), cy + r * math.cos(a))
+    return left, right
 
 
 def svg() -> str:
-    points = " ".join(f"{x:.2f},{y:.2f}" for x, y in hexagon())
-    circle = lambda c, fill: f'<circle cx="{c[0]}" cy="{c[1]}" r="{c[2]}" fill="{fill}"/>'
+    (lx, ly), (rx, ry) = tangents()
+    r = HEAD[2]
+    pin = f"M{lx:.2f},{ly:.2f} A{r},{r} 0 1 1 {rx:.2f},{ry:.2f} L{TIP[0]},{TIP[1]} Z"
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {GRID} {GRID}">'
-        f'<polygon points="{points}" fill="{TEAL}"/>'
-        f'<circle cx="{EYE[0]}" cy="{EYE[1]}" r="{EYE[2]}" fill="{WHITE}" stroke="{DARK}" stroke-width="2.5"/>'
-        f"{circle(PUPIL, DARK)}{circle(GLINT, WHITE)}</svg>\n"
+        f'<path d="{pin}" fill="{TEAL}"/>'
+        f'<circle cx="{DOT[0]}" cy="{DOT[1]}" r="{DOT[2]}" fill="{WHITE}"/></svg>\n'
     )
 
 
@@ -49,11 +50,11 @@ def png(size: int) -> Image.Image:
     s = size * 8 / GRID
     img = Image.new("RGBA", (size * 8, size * 8), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
-    d.polygon(hexagon(s), fill=TEAL)
     dot = lambda c, **kw: d.ellipse([(c[0] - c[2]) * s, (c[1] - c[2]) * s, (c[0] + c[2]) * s, (c[1] + c[2]) * s], **kw)
-    dot(EYE, fill=WHITE, outline=DARK, width=round(2.5 * s))
-    dot(PUPIL, fill=DARK)
-    dot(GLINT, fill=WHITE)
+    left, right = tangents()
+    d.polygon([(x * s, y * s) for x, y in (left, right, TIP)], fill=TEAL)
+    dot(HEAD, fill=TEAL)
+    dot(DOT, fill=WHITE)
     return img.resize((size, size), Image.Resampling.LANCZOS)
 
 
