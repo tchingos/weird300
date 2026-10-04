@@ -7,12 +7,16 @@
   var dialog = document.createElement('dialog');
   dialog.className = 'lightbox';
   dialog.setAttribute('aria-label', 'Photo viewer');
+  var icon = function (path) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" ' +
+      'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + path + '"/></svg>';
+  };
   dialog.innerHTML =
     '<figure><img alt=""><figcaption></figcaption></figure>' +
     '<p class="lightbox-count" aria-live="polite"></p>' +
-    '<button class="lightbox-close" type="button" aria-label="Close">&times;</button>' +
-    '<button class="lightbox-prev" type="button" aria-label="Previous photo">&#8249;</button>' +
-    '<button class="lightbox-next" type="button" aria-label="Next photo">&#8250;</button>';
+    '<button class="lightbox-close" type="button" aria-label="Close">' + icon('M6 6l12 12M18 6L6 18') + '</button>' +
+    '<button class="lightbox-prev" type="button" aria-label="Previous photo">' + icon('M15 5l-7 7 7 7') + '</button>' +
+    '<button class="lightbox-next" type="button" aria-label="Next photo">' + icon('M9 5l7 7-7 7') + '</button>';
   document.body.appendChild(dialog);
 
   var img = dialog.querySelector('img');
