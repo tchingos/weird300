@@ -1,7 +1,13 @@
 {%- comment -%}
-  A captioned photo. Params: place, photo ({file, caption}), class, lazy (true/false).
+  A captioned photo that opens in the lightbox (assets/js/lightbox.js).
+  Params: place, photo ({file, caption}), class, lazy (true/false).
+  The link points at the full image, so it still works without JavaScript.
 {%- endcomment -%}
+{% capture src %}{% include photo-url.html place=include.place file=include.photo.file %}{% endcapture %}
+{% assign caption = include.photo.caption | default: "" %}
 <figure class="{{ include.class }}">
-  <img {% if include.lazy %}loading="lazy" {% endif %}src="{% include photo-url.html place=include.place file=include.photo.file %}" alt="{{ include.photo.caption | escape }}">
-  {% if include.photo.caption and include.photo.caption != "" %}<figcaption>{{ include.photo.caption }}</figcaption>{% endif %}
+  <a href="{{ src }}" data-lightbox data-caption="{{ caption | escape }}">
+    <img {% if include.lazy %}loading="lazy" {% endif %}src="{{ src }}" alt="{{ caption | escape }}">
+  </a>
+  {% if caption != "" %}<figcaption>{{ caption }}</figcaption>{% endif %}
 </figure>
