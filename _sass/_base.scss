@@ -1,0 +1,18 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.65 Inter, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+main { max-width: var(--page); margin: 0 auto; padding-inline: 1.25rem; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+h1, h2 { line-height: 1.1; letter-spacing: -0.02em; font-weight: 800; }
+figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+
+.section-title { font-size: 1.5rem; margin: 3.5rem 0 1.25rem; }
+.page-prose { max-width: var(--measure); padding-top: 3rem; }

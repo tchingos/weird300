@@ -1,0 +1,11 @@
+// The Leaflet map container (see _includes/places-map.html).
+.map {
+  height: 30rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  scroll-margin-top: 5rem; // clear the sticky header when linked via #map
+}
+.map-small { height: 20rem; }
+.coords { font-size: 0.9rem; color: var(--muted); margin-top: 0.85rem; }

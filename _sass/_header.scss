@@ -1,0 +1,41 @@
+// Site header and footer.
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; // above Leaflet's panes
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header-inner {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding-inline: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.75rem;
+}
+.wordmark {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  span { color: var(--accent); }
+}
+.site-header nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-left: 1.25rem;
+  &:hover { color: var(--ink); }
+}
+
+.site-footer {
+  max-width: var(--page);
+  margin: 5rem auto 0;
+  padding: 2rem 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+}

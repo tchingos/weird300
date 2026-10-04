@@ -1,0 +1,6 @@
+# Everything editable on the home page. Put home page photos in assets/home/
+# (run them through the same cleanup as visit photos, see CLAUDE.md).
+kicker: A travel log
+headline: Visiting the 300 weirdest places in Britain.
+# hero_image: assets/home/hero.jpg
+# hero_caption: ""

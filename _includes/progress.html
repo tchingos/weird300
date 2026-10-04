@@ -1,0 +1,8 @@
+{%- comment -%} Progress toward the full list. Params: done (count). {%- endcomment -%}
+{% assign pct = include.done | times: 100.0 | divided_by: site.total_places %}
+<div class="progress-wrap">
+  <span><strong>{{ include.done }}</strong> of {{ site.total_places }} visited</span>
+  <div class="progress" role="progressbar" aria-valuenow="{{ include.done }}" aria-valuemin="0" aria-valuemax="{{ site.total_places }}">
+    <div style="width: {{ pct }}%"></div>
+  </div>
+</div>

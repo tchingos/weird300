@@ -1,0 +1,29 @@
+// Design tokens. Every colour and radius in the site comes from here.
+:root {
+  --ink: #111418;
+  --muted: #5f6670;
+  --bg: #ffffff;
+  --soft: #f3f4f6;
+  --line: #e5e7eb;
+  --accent: #0f766e;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --measure: 44rem;
+  --page: 68rem;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #eef0f2;
+    --muted: #9aa3ad;
+    --bg: #0e1113;
+    --soft: #181c20;
+    --line: #2a3036;
+    --accent: #2dd4bf;
+    --shadow: none;
+    --header-bg: rgba(14, 17, 19, 0.85);
+    color-scheme: dark;
+  }
+}

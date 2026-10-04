@@ -1,0 +1,24 @@
+---
+layout: default
+title: Places
+permalink: /places/
+---
+{% assign by_category = site.places | sort: "visited" | reverse | group_by: "category" %}
+<header class="page-head">
+  <h1>Places</h1>
+  <p>Every place visited so far, grouped the way the book groups them.</p>
+</header>
+
+{% for category in site.data.categories %}
+  {% assign group = by_category | where: "name", category.name | first %}
+  <section class="category">
+    <h2 class="section-title">{{ category.name }} <span>{{ group.items.size | default: 0 }}</span></h2>
+    {% if group %}
+    <ul class="cards">
+      {% for place in group.items %}<li>{% include place-card.html place=place %}</li>{% endfor %}
+    </ul>
+    {% else %}
+    <p class="empty">None yet.</p>
+    {% endif %}
+  </section>
+{% endfor %}

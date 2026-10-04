@@ -1,0 +1,19 @@
+---
+layout: default
+---
+{% assign visits = site.places | sort: "visited" | reverse %}
+{% include home-hero.html home=site.data.home %}
+{% include progress.html done=visits.size %}
+
+<h2 class="section-title">The map so far</h2>
+{% include places-map.html places=visits %}
+
+<h2 class="section-title">Latest visits</h2>
+{% if visits.size == 0 %}
+<p class="empty">Nothing visited yet. The first trip is coming.</p>
+{% else %}
+<ul class="cards">
+  {% for place in visits limit: 6 %}<li>{% include place-card.html place=place %}</li>{% endfor %}
+</ul>
+{% if visits.size > 6 %}<p class="more"><a href="{{ '/places/' | relative_url }}">See all {{ visits.size }} places →</a></p>{% endif %}
+{% endif %}

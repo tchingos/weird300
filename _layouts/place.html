@@ -1,0 +1,36 @@
+---
+layout: default
+---
+{% assign cover = page.photos | first %}
+<article class="place">
+  {% if cover %}{% include photo.html place=page photo=cover class="hero" %}{% endif %}
+
+  <header class="place-head">
+    <p class="eyebrow">{{ page.category }}</p>
+    <h1>{{ page.title }}</h1>
+    {% include place-facts.html place=page %}
+  </header>
+
+  <div class="prose">{{ content }}</div>
+
+  {% if page.photos.size > 1 %}
+  <section class="gallery">
+    {% for photo in page.photos offset:1 %}
+      {% include photo.html place=page photo=photo lazy=true %}
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <section class="where">
+    <h2>Getting there</h2>
+    {% assign here = site.places | where: "slug", page.slug %}
+    {% include places-map.html places=here class="map-small" %}
+    <p class="coords">
+      {{ page.lat }}, {{ page.lng }} ·
+      <a href="https://www.openstreetmap.org/?mlat={{ page.lat }}&mlon={{ page.lng }}#map=15/{{ page.lat }}/{{ page.lng }}">OpenStreetMap</a> ·
+      <a href="https://www.google.com/maps/search/?api=1&query={{ page.lat }},{{ page.lng }}">Google Maps</a>
+    </p>
+  </section>
+
+  {% include place-nav.html place=page %}
+</article>

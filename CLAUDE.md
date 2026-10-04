@@ -1,0 +1,60 @@
+# Weird 300
+
+A travel blog of visits to the 300 places in *Weird Guide Britain* by Dave
+Hamilton (Wild Things Publishing, 2026). Hosted on GitHub Pages at
+https://tchingos.github.io/weird300/ from the `main` branch of
+`tchingos/weird300`. GitHub Pages builds it with Jekyll; there is no local
+Jekyll install, so the live build is the real test.
+
+## Writing rules (apply to every word that ends up on the site)
+
+- Never use em dashes or en dashes. Use a full stop, a colon, or a comma.
+  `scripts/check.py` fails a page that contains one.
+- Write in full sentences, in Tim's voice ("we", "Jillian and I"). Warm and
+  plain, not gushing.
+- Only state facts Tim gave you or that are well established. Never invent
+  details of the visit (birds seen, weather, who said what). Ask instead.
+- Never copy text from the book. Credit it, and point readers to it.
+
+## Layout
+
+| Path | What it is |
+|---|---|
+| `_places/<slug>.md` | One page per visit: YAML front matter plus the write-up |
+| `assets/photos/<slug>/` | That visit's photos, `01.jpg` onward. The first is the hero and card image |
+| `_data/categories.yml` | The book's seven sections; `category` must match one |
+| `_data/home.yml` | Home page headline and optional hero photo |
+| `_layouts/` | `default` (shell), `place` (one visit) |
+| `_includes/` | Components, one job each: `place-card`, `places-map`, `photo`, `photo-url`, `place-facts`, `place-nav`, `progress`, `home-hero`, `site-header`, `site-footer` |
+| `_sass/` | One partial per component, plus `_tokens.scss` for every colour and size |
+| `assets/js/map.js` | Draws any `places-map` include with Leaflet |
+| `scripts/weird300/` | Python package: `photos`, `exif`, `pages`, `checks`, `site` |
+| `scripts/new_visit.py`, `scripts/check.py` | Thin command-line entry points onto the package |
+| `inbox/` | Git-ignored drop zone for raw photos |
+
+New behaviour goes in a new include, partial, or module, not into an existing
+file that already does something else. Photo paths are built only in
+`_includes/photo-url.html`.
+
+## Commands
+
+```sh
+uv run scripts/new_visit.py "Place Name" inbox/<folder> --category "Rock Formations" --region "Town, County"
+uv run scripts/new_visit.py "Place Name" more.jpg      # add photos to an existing page
+uv run scripts/check.py                                # must pass before pushing
+```
+
+`uv` pulls Pillow, pillow-heif and PyYAML on first run; nothing to install.
+
+Photos must go through `new_visit.py`. It rotates them upright, resizes
+them to 2000px, and strips all metadata so no GPS data is published.
+`check.py` rejects any photo that still carries metadata.
+
+## Publishing
+
+Commit and push to `main`; Pages rebuilds in about a minute. Confirm with
+`gh api repos/tchingos/weird300/pages/builds/latest --jq .status`. The remote
+URL carries the `tchingos` account, which is what the global pre-push guard
+expects. Ask Tim before pushing a new or changed visit.
+
+To add a visit end to end, use the `add-visit` skill.

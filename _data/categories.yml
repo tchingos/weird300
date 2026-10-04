@@ -1,0 +1,9 @@
+# The seven sections of Weird Guide Britain. A place's `category` must be one
+# of these names exactly; scripts/check.py enforces it.
+- name: Public Artworks
+- name: Follies
+- name: Rock Formations
+- name: Weird Ruins
+- name: Film and TV Locations
+- name: World War II Ruins
+- name: Outliers

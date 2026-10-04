@@ -1,0 +1,20 @@
+// Previous / all / next links at the foot of a place page.
+.place-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  a { text-decoration: none; font-weight: 600; }
+  span { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); }
+  .next { text-align: right; }
+  .all { color: var(--accent); }
+}
+
+@media (max-width: 40rem) {
+  .place-nav { grid-template-columns: 1fr 1fr; .all { grid-column: 1 / -1; grid-row: 2; text-align: center; } }
+}
+
+.more a { font-weight: 600; color: var(--accent); text-decoration: none; }

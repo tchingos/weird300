@@ -1,0 +1,15 @@
+{%- comment -%}
+  The top of the home page. Params: home (site.data.home).
+  With a hero_image it becomes a full-width photo banner; without one, plain text.
+{%- endcomment -%}
+{% assign h = include.home %}
+<section class="intro{% if h.hero_image %} intro-photo{% endif %}">
+  {% if h.hero_image %}
+  <img class="intro-bg" src="{{ h.hero_image | prepend: '/' | relative_url }}" alt="{{ h.hero_caption | escape }}">
+  {% endif %}
+  <div class="intro-text">
+    <p class="kicker">{{ h.kicker }}</p>
+    <h1>{{ h.headline }}</h1>
+    <p>{{ site.description }}</p>
+  </div>
+</section>

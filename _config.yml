@@ -1,0 +1,21 @@
+title: Weird 300
+description: >-
+  Our slow progress through the 300 curious corners, wild wonders and
+  sublime structures in Dave Hamilton's Weird Guide Britain.
+baseurl: /weird300
+url: https://tchingos.github.io
+total_places: 300
+
+collections:
+  places:
+    output: true
+    permalink: /places/:name/
+
+defaults:
+  - scope: { path: "", type: places }
+    values: { layout: place }
+
+sass:
+  style: compressed
+
+exclude: [scripts, inbox, README.md, CLAUDE.md, .claude, .github]

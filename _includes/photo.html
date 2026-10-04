@@ -1,0 +1,7 @@
+{%- comment -%}
+  A captioned photo. Params: place, photo ({file, caption}), class, lazy (true/false).
+{%- endcomment -%}
+<figure class="{{ include.class }}">
+  <img {% if include.lazy %}loading="lazy" {% endif %}src="{% include photo-url.html place=include.place file=include.photo.file %}" alt="{{ include.photo.caption | escape }}">
+  {% if include.photo.caption and include.photo.caption != "" %}<figcaption>{{ include.photo.caption }}</figcaption>{% endif %}
+</figure>

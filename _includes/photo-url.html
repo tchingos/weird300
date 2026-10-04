@@ -1,0 +1,5 @@
+{%- comment -%}
+  The URL of one photo. Params: place (a places document), file (filename).
+  Every template builds photo paths through here so the folder layout lives in one place.
+{%- endcomment -%}
+{{- '/assets/photos/' | append: include.place.slug | append: '/' | append: include.file | relative_url -}}

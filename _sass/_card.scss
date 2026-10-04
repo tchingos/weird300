@@ -1,0 +1,25 @@
+// Place cards on the home page (see _includes/place-card.html).
+.cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 2rem 1.5rem;
+}
+.card {
+  display: block;
+  text-decoration: none;
+  &:hover .card-img img { transform: scale(1.04); }
+  strong { display: block; font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.01em; margin: 0.15rem 0; }
+}
+.card-img {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--soft);
+  margin-bottom: 0.9rem;
+  img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+}
+.card-cat { display: block; font-size: 0.8rem; font-weight: 600; color: var(--accent); }
+.card-meta { font-size: 0.9rem; color: var(--muted); }

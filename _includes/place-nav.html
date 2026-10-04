@@ -1,0 +1,20 @@
+{%- comment -%}
+  Previous and next place, in visit order. Params: place.
+{%- endcomment -%}
+{% assign ordered = site.places | sort: "visited" %}
+{% for p in ordered %}
+  {% if p.url == include.place.url %}
+    {% assign i = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+{% assign prev_i = i | minus: 1 %}
+{% assign next_i = i | plus: 1 %}
+<nav class="place-nav" aria-label="More places">
+  {% if i > 0 %}{% assign prev = ordered[prev_i] %}
+  <a class="prev" href="{{ prev.url | relative_url }}"><span>Previous visit</span>{{ prev.title }}</a>
+  {% else %}<span></span>{% endif %}
+  <a class="all" href="{{ '/places/' | relative_url }}">All places</a>
+  {% if next_i < ordered.size %}{% assign next = ordered[next_i] %}
+  <a class="next" href="{{ next.url | relative_url }}"><span>Next visit</span>{{ next.title }}</a>
+  {% else %}<span></span>{% endif %}
+</nav>
