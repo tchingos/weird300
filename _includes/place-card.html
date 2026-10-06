@@ -2,7 +2,7 @@
 {% assign cover = include.place.photos | first %}
 <a class="card" href="{{ include.place.url | relative_url }}">
   <div class="card-img">
-    {% if cover %}<img loading="lazy" src="{% include photo-url.html place=include.place file=cover.file %}" alt="">{% endif %}
+    {% if cover %}<img loading="lazy" src="{% include photo-url.html place=include.place file=cover.file %}" alt=""{% if cover.focus %} style="object-position: {{ cover.focus }}"{% endif %}>{% endif %}
   </div>
   <span class="card-cat">{{ include.place.category }}</span>
   <strong>{{ include.place.title }}</strong>

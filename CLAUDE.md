@@ -21,7 +21,7 @@ Jekyll install, so the live build is the real test.
 | Path | What it is |
 |---|---|
 | `_places/<slug>.md` | One page per visit: YAML front matter plus the write-up |
-| `assets/photos/<slug>/` | That visit's photos, `01.jpg` onward. The first is the hero and card image |
+| `assets/photos/<slug>/` | That visit's photos, `01.jpg` onward. The first listed is the hero and card image; give it `focus: "50% 25%"` (any CSS object-position) when a centre crop would cut off the subject |
 | `_data/categories.yml` | The book's seven sections; `category` must match one |
 | `_data/home.yml` | Home page headline and optional hero photo |
 | `_layouts/` | `default` (shell), `place` (one visit) |

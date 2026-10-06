@@ -48,7 +48,8 @@ Read each imported file in `assets/photos/<slug>/` so you actually see it.
 Then:
 
 - Reorder the `photos:` list so the strongest wide shot is first. It is the
-  hero and the card image.
+  hero and the card image. The hero is cropped to a wide banner, so for a
+  tall photo add `focus: "50% 25%"` (or whatever keeps the subject in frame).
 - Write a short caption for each, describing what is in frame. Never guess
   at things you cannot see.
 
