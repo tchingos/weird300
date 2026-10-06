@@ -22,7 +22,7 @@ photos:
   caption: Up on the viewing platform at the top.
 ---
 
-The excuse for this one was music. In May 2023 I went to the Isles of Lewis and Harris to see Fred again.. play a very intimate show at Tala na Mara, and I went with my friend Barry. We met on Instagram as music friends and spent the better part of two years chatting on WhatsApp and Instagram before we finally met in person. Barry lives in Scotland, so he could come and meet me, and we drove down to the show in his super sporty green hatchback.
+The excuse for this one was music. In May 2023 I went to the Isles of Lewis and Harris to see Fred again.. play a very intimate show at Talla na Mara, and I went with my friend Barry. We met on Instagram as music friends and spent the better part of two years chatting on WhatsApp and Instagram before we finally met in person. Barry lives in Scotland, so he could come and meet me, and we drove down to the show in his super sporty green hatchback.
 
 The memorial sits on a hillock above the road just south of Balallan, so we pulled over on the way. It is a beehive of dry stone with three doorways, one for each of the districts of South Lochs, Kinloch and North Lochs, and an iron stair inside leads up to a viewing platform at the top.
 
