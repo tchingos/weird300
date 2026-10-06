@@ -34,6 +34,16 @@
   li { background: var(--soft); border-radius: 99px; padding: 0.3rem 0.85rem; font-size: 0.85rem; color: var(--muted); }
 }
 
+.place-note {
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--soft);
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
 .prose {
   max-width: var(--measure);
   margin: 2.5rem auto 0;

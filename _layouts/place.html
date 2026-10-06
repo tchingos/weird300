@@ -9,6 +9,7 @@ layout: default
     <p class="eyebrow">{{ page.category }}</p>
     <h1>{{ page.title }}</h1>
     {% include place-facts.html place=page %}
+    {% include place-note.html place=page %}
   </header>
 
   <div class="prose">{{ content }}</div>

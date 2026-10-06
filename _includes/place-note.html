@@ -1,0 +1,7 @@
+{%- comment -%}
+  A short note under a place's title. Params: place.
+  Shown when the page sets `before_book: true`.
+{%- endcomment -%}
+{% if include.place.before_book %}
+<p class="place-note">We found this one before we had the book. It was only later that we discovered it is one of the Weird 300.</p>
+{% endif %}

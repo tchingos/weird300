@@ -8,6 +8,7 @@ entry: null
 book_page: null
 lat: 58.08
 lng: -6.64859
+before_book: true
 summary: A roadside stop on Lewis, on the way to see Fred again.. play on Harris, at a stone cairn that remembers the deer raid of 1887.
 photos:
 - file: 01.jpg
@@ -27,4 +28,4 @@ The memorial sits on a hillock above the road just south of Balallan, so we pull
 
 It marks the Pairc Deer Raid of November 1887. Crofters from the surrounding villages, short of land and living in poverty, marched into the deer forest on the Park estate, killed deer, and openly challenged the landowner, Lady Matheson, over land that had been cleared for sport. Six of the raiders were tried in Edinburgh and acquitted. The cairn was designed by the artist Will Maclean in the 1990s, and it is one of three on Lewis that remember the land struggles of the 1880s.
 
-Then it was back in the car and on to the concert, which was a very cool show. Three down, 297 to go.
+Then it was back in the car and on to the concert, which was a very cool show.

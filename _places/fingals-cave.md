@@ -8,6 +8,7 @@ entry: null
 book_page: null
 lat: 56.43143
 lng: -6.3413
+before_book: true
 summary: Our accidental first Weird 300, reached by boat from Tobermory with some birding on the way.
 photos:
 - file: 02.jpg
@@ -28,4 +29,4 @@ Nobody built it, of course. The island is basalt that cooled slowly around 60 mi
 
 I also went for a swim, in water clear enough to glow green over the submerged rock, with the columns rising straight up beside me.
 
-It was only later, leafing through Dave Hamilton's book, that we realised we had already ticked one off. One down, 299 to go.
+It was only later, leafing through Dave Hamilton's book, that we realised we had already ticked one off.
