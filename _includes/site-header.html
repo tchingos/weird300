@@ -8,7 +8,7 @@
       <a href="{{ '/' | relative_url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
       <a href="{{ '/places/' | relative_url }}"{% if in_places %} aria-current="page"{% endif %}>Places</a>
       <a href="{{ '/journal/' | relative_url }}"{% if page.collection == "posts" or page.url == "/journal/" %} aria-current="page"{% endif %}>Journal</a>
-      <a href="{{ '/' | relative_url }}#map">Map</a>
+      <a class="nav-map" href="{{ '/' | relative_url }}#map">Map</a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
     </nav>
   </div>

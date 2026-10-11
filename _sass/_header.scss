@@ -32,8 +32,11 @@
   &[aria-current="page"] { color: var(--ink); font-weight: 600; }
 }
 
+// On phones the menu must fit on one line. Map only jumps to the home page's
+// map, which Home already reaches, so it is the one to drop.
 @media (max-width: 30rem) {
   .site-header nav a { margin-left: 0.9rem; font-size: 0.9rem; }
+  .site-header .nav-map { display: none; }
 }
 
 .site-footer {
