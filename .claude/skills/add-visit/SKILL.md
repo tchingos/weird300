@@ -86,21 +86,21 @@ Only now, after the page is live, delete the raw photos from `inbox/`.
 ## 7. Draft the "new post" email
 
 Tim emails close friends and family about each new post himself. Your job is
-only the draft; never send it.
+only the draft; never send anything.
 
-1. Read the list (one address per line, with an optional `# Name` after it):
-   `/usr/bin/sed 's/#.*//' ~/.config/weird300/subscribers.txt | /usr/bin/tr -d ' \t' | /usr/bin/grep .`
-   This file is private and lives outside the repo on purpose. Never copy
-   addresses into the repo, a commit, or anything published.
-2. Create a Gmail draft with `mcp__claude_ai_Gmail__create_draft`:
-   - `to`: Tim (timothy.a.chingos@gmail.com); `bcc`: everyone on the list.
-   - `subject`: `New on Weird 300: <Title>`
-   - `htmlBody`: a short, warm note in Tim's voice (two or three sentences,
-     same writing rules: no em dashes), the cover photo as an `<img>` loaded
-     from the live site and linked to the post, and a clear link to the post.
-     Keep the markup simple, with inline styles only.
-   - `body`: the same note and link as plain text.
-3. Give Tim the draft's link and say it is waiting for him to proofread and send.
+Do not use the Gmail connector for this. It rewrites every link into a
+google.com redirect, and readers then hit a "Redirect Notice" page.
+
+1. Write `emails/<slug>.txt` (git-ignored): the subject on the first line,
+   a blank line, then a short plain-text note in Tim's voice (two or three
+   sentences, same writing rules, no em dashes), the post's full `https://`
+   link on its own line, and "Tim" at the end. Plain text only; no images.
+   Subject: `New on Weird 300: <Title>`.
+2. Run `python3 scripts/compose_email.py emails/<slug>.txt`. It opens a
+   Gmail compose window addressed to Tim with everyone in
+   `~/.config/weird300/subscribers.txt` in BCC.
+3. Tell Tim the compose window is open for him to proofread and send. If he
+   closes it by accident, run the same command again.
 
 If the list is empty, skip the draft and tell Tim.
 

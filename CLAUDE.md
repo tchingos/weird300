@@ -77,8 +77,11 @@ To add a visit end to end, use the `add-visit` skill.
 ## New-post emails
 
 Tim tells close friends and family about new posts by email. After a post is
-live, draft (never send) a Gmail message to Tim with the subscribers in BCC;
-he proofreads and sends it. The list is `~/.config/weird300/subscribers.txt`,
+live, write the note to `emails/<slug>.txt` (git-ignored) and open it with
+`python3 scripts/compose_email.py emails/<slug>.txt`, which pre-fills a Gmail
+compose window with the subscribers in BCC. Never send; Tim proofreads and
+sends. Do not draft through the Gmail connector: it turns every link into a
+google.com redirect that shows readers a "Redirect Notice" page. The list is `~/.config/weird300/subscribers.txt`,
 one address per line (optionally followed by `# Name`), kept outside this
 public repo. Details are in step 7
 of the `add-visit` skill.

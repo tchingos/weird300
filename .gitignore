@@ -3,3 +3,4 @@ _site/
 .DS_Store
 inbox/
 __pycache__/
+emails/
