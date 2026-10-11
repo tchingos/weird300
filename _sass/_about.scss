@@ -1,0 +1,5 @@
+// The photo at the top of the About page.
+.about-photo {
+  margin: 1.5rem 0 2rem;
+  img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
+}

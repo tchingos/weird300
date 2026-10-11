@@ -62,6 +62,7 @@ uv run scripts/new_visit.py "Place Name" more.jpg      # add photos to an existi
 uv run scripts/new_post.py "Post title" inbox --date 2026-10-06            # a journal post
 uv run scripts/check.py                                # must pass before pushing
 uv run scripts/rebuild_photos.py                       # only after changing the size budget
+uv run scripts/import_photo.py assets/about inbox/x.jpg  # a photo for a page, not a place or post
 ```
 
 `uv` pulls Pillow, pillow-heif and PyYAML on first run; nothing to install.
