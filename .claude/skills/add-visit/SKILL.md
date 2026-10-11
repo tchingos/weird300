@@ -83,5 +83,25 @@ then give Tim the page URL:
 `https://tchingos.github.io/weird300/places/<slug>/`.
 Only now, after the page is live, delete the raw photos from `inbox/`.
 
+## 7. Draft the "new post" email
+
+Tim emails close friends and family about each new post himself. Your job is
+only the draft; never send it.
+
+1. Read the list: `/usr/bin/grep -v '^#' ~/.config/weird300/subscribers.txt | /usr/bin/grep .`
+   This file is private and lives outside the repo on purpose. Never copy
+   addresses into the repo, a commit, or anything published.
+2. Create a Gmail draft with `mcp__claude_ai_Gmail__create_draft`:
+   - `to`: Tim (timothy.a.chingos@gmail.com); `bcc`: everyone on the list.
+   - `subject`: `New on Weird 300: <Title>`
+   - `htmlBody`: a short, warm note in Tim's voice (two or three sentences,
+     same writing rules: no em dashes), the cover photo as an `<img>` loaded
+     from the live site and linked to the post, and a clear link to the post.
+     Keep the markup simple, with inline styles only.
+   - `body`: the same note and link as plain text.
+3. Give Tim the draft's link and say it is waiting for him to proofread and send.
+
+If the list is empty, skip the draft and tell Tim.
+
 For a journal post (anything that is not one of the 300) the steps are the
 same, using `uv run scripts/new_post.py "<Title>" inbox --date YYYY-MM-DD`.

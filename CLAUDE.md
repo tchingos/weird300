@@ -73,3 +73,11 @@ URL carries the `tchingos` account, which is what the global pre-push guard
 expects. Ask Tim before pushing a new or changed visit.
 
 To add a visit end to end, use the `add-visit` skill.
+
+## New-post emails
+
+Tim tells close friends and family about new posts by email. After a post is
+live, draft (never send) a Gmail message to Tim with the subscribers in BCC;
+he proofreads and sends it. The list is `~/.config/weird300/subscribers.txt`,
+one address per line, kept outside this public repo. Details are in step 7
+of the `add-visit` skill.
