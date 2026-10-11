@@ -20,7 +20,7 @@ from datetime import date
 from pathlib import Path
 
 from weird300 import photos, site
-from weird300.pages import Page, new_page, slugify
+from weird300.pages import Page, new_place, slugify
 
 
 def parse_args() -> argparse.Namespace:
@@ -51,7 +51,7 @@ def centre(points: list[tuple[float, float]]) -> tuple[float, float] | tuple[Non
 def main() -> None:
     args = parse_args()
     slug = args.slug or slugify(args.title)
-    path = site.page_path(slug)
+    path = site.place_path(slug)
     is_new = not path.exists()
 
     if is_new and args.category not in site.categories():
@@ -59,13 +59,13 @@ def main() -> None:
     if not is_new and not args.photos:
         sys.exit(f"{path.name} already exists; pass photos to add to it.")
 
-    imported = photos.import_all(photos.find(args.photos), site.photo_dir(slug))
+    imported = photos.import_all(photos.find(args.photos), site.photo_dir("place", slug))
     dates = [p.taken for p in imported if p.taken]
     points = [p.position for p in imported if p.position]
 
     if is_new:
         lat, lng = (args.lat, args.lng) if args.lat is not None else centre(points)
-        page = new_page(
+        page = new_place(
             path,
             title=args.title,
             category=args.category,
@@ -79,13 +79,13 @@ def main() -> None:
         )
     else:
         page = Page.load(path)
-    page.add_photos([p.file for p in imported])
+    page.add_photos(imported)
     page.save()
 
     summary = {
         "page": str(path.relative_to(site.ROOT)),
         "action": "created" if is_new else "added photos",
-        "photos_added": [f"{p.file} <- {p.source.name}" for p in imported],
+        "photos_added": [f"{p.file} ({p.shape}) <- {p.source.name}" for p in imported],
         "dates_in_photos": sorted({d.isoformat() for d in dates}),
         "gps_in_photos": len(points),
         "photos_without_gps": [p.source.name for p in imported if not p.position],

@@ -12,13 +12,17 @@ before_book: true
 summary: A roadside stop on Lewis, on the way to see Fred again.. play on Harris, at a stone cairn that remembers the deer raid of 1887.
 photos:
 - file: 01.jpg
+  shape: portrait
   caption: The cairn on its hillock above the road south of Balallan.
   focus: 50% 25%
 - file: 03.jpg
+  shape: portrait
   caption: Barry's green hatchback, seen through one of the cairn's three doorways.
 - file: 04.jpg
+  shape: portrait
   caption: Me beside the cairn.
 - file: 02.jpg
+  shape: portrait
   caption: Up on the viewing platform at the top.
 ---
 

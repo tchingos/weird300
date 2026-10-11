@@ -1,5 +1,7 @@
 {%- comment -%}
-  The URL of one photo. Params: place (a places document), file (filename).
-  Every template builds photo paths through here so the folder layout lives in one place.
+  The URL of one photo. Params: doc (a place or journal post), file (filename).
+  Every template builds photo paths through here, so the folder layout lives in
+  one place: places in assets/photos/<slug>/, journal posts in assets/journal/<slug>/.
 {%- endcomment -%}
-{{- '/assets/photos/' | append: include.place.slug | append: '/' | append: include.file | relative_url -}}
+{%- if include.doc.collection == "posts" -%}{%- assign root = "/assets/journal/" -%}{%- else -%}{%- assign root = "/assets/photos/" -%}{%- endif -%}
+{{- root | append: include.doc.slug | append: '/' | append: include.file | relative_url -}}

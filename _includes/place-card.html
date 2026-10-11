@@ -1,10 +1,3 @@
-{%- comment -%} A grid card linking to one place. Params: place. {%- endcomment -%}
-{% assign cover = include.place.photos | first %}
-<a class="card" href="{{ include.place.url | relative_url }}">
-  <div class="card-img">
-    {% if cover %}<img loading="lazy" src="{% include photo-url.html place=include.place file=cover.file %}" alt=""{% if cover.focus %} style="object-position: {{ cover.focus }}"{% endif %}>{% endif %}
-  </div>
-  <span class="card-cat">{{ include.place.category }}</span>
-  <strong>{{ include.place.title }}</strong>
-  <span class="card-meta">{{ include.place.region }} · {{ include.place.visited | date: "%B %Y" }}</span>
-</a>
+{%- comment -%} A card for one place. Params: place. {%- endcomment -%}
+{% capture meta %}{{ include.place.region }} · {{ include.place.visited | date: "%B %Y" }}{% endcapture %}
+{% include card.html doc=include.place kicker=include.place.category meta=meta %}

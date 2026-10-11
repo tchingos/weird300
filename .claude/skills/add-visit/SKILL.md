@@ -47,8 +47,9 @@ summary: if `visited` was still TODO and the photos carry a date, set it.
 Read each imported file in `assets/photos/<slug>/` so you actually see it.
 Then:
 
-- Reorder the `photos:` list so the strongest wide shot is first. It is the
-  hero and the card image. The hero is cropped to a wide banner, so for a
+- Reorder the `photos:` list so the strongest shot is first. It is the hero
+  and the card image. A `landscape` cover becomes a full-width banner; a
+  `portrait` one is shown whole beside the title. The hero is cropped to a wide banner, so for a
   tall photo add `focus: "50% 25%"` (or whatever keeps the subject in frame).
 - Write a short caption for each, describing what is in frame. Never guess
   at things you cannot see.
@@ -80,4 +81,7 @@ Wait about a minute, confirm with
 `gh api repos/tchingos/weird300/pages/builds/latest --jq '.status, .error.message'`,
 then give Tim the page URL:
 `https://tchingos.github.io/weird300/places/<slug>/`.
-Finally, delete the raw folder from `inbox/`.
+Only now, after the page is live, delete the raw photos from `inbox/`.
+
+For a journal post (anything that is not one of the 300) the steps are the
+same, using `uv run scripts/new_post.py "<Title>" inbox --date YYYY-MM-DD`.

@@ -1,11 +1,11 @@
 {%- comment -%}
   A captioned photo that opens in the lightbox (assets/js/lightbox.js).
-  Params: place, photo ({file, caption, focus}), class, lazy (true/false).
+  Params: doc, photo ({file, shape, caption, focus}), class, lazy (true/false).
   `focus` is an optional CSS object-position (e.g. "50% 25%") saying which part
-  of the photo to keep when the hero or gallery crops it.
+  of the photo to keep when it is cropped.
   The link points at the full image, so it still works without JavaScript.
 {%- endcomment -%}
-{% capture src %}{% include photo-url.html place=include.place file=include.photo.file %}{% endcapture %}
+{% capture src %}{% include photo-url.html doc=include.doc file=include.photo.file %}{% endcapture %}
 {% assign caption = include.photo.caption | default: "" %}
 <figure class="{{ include.class }}">
   <a href="{{ src }}" data-lightbox data-caption="{{ caption | escape }}">

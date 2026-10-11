@@ -5,6 +5,10 @@ description: >-
 baseurl: /weird300
 url: https://tchingos.github.io
 total_places: 300
+timezone: Europe/London
+
+# Journal posts (_posts/) live under /journal/.
+permalink: /journal/:title/
 
 collections:
   places:
@@ -14,6 +18,8 @@ collections:
 defaults:
   - scope: { path: "", type: places }
     values: { layout: place }
+  - scope: { path: "", type: posts }
+    values: { layout: post }
 
 sass:
   style: compressed

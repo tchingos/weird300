@@ -1,0 +1,8 @@
+{%- comment -%} Every photo after the cover, in a grid. Params: doc. {%- endcomment -%}
+{% if include.doc.photos.size > 1 %}
+<section class="gallery">
+  {% for photo in include.doc.photos offset:1 %}
+    {% include photo.html doc=include.doc photo=photo lazy=true %}
+  {% endfor %}
+</section>
+{% endif %}

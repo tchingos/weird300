@@ -1,0 +1,18 @@
+---
+layout: default
+title: Journal
+permalink: /journal/
+summary: Everything else along the way that is not one of the 300.
+---
+<header class="page-head">
+  <h1>Journal</h1>
+  <p>Everything else along the way that is not one of the 300.</p>
+</header>
+
+{% if site.posts.size == 0 %}
+<p class="empty">Nothing here yet.</p>
+{% else %}
+<ul class="cards cards-spaced">
+  {% for post in site.posts %}<li>{% include post-card.html post=post %}</li>{% endfor %}
+</ul>
+{% endif %}

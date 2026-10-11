@@ -1,0 +1,26 @@
+{%- comment -%}
+  The top of a place or journal post: the cover photo plus the title block.
+  Params: doc, eyebrow (small line above the title), meta (HTML shown under it).
+  The cover's `shape` picks the layout:
+    landscape  a full-width banner, with the title block below it
+    portrait   photo and title side by side (stacked on phones), so a tall
+               photo is shown whole instead of being cropped into a banner
+{%- endcomment -%}
+{% assign cover = include.doc.photos | first %}
+{% if cover and cover.shape == "portrait" %}
+<header class="hero-split">
+  {% include photo.html doc=include.doc photo=cover class="hero-split-photo" %}
+  <div class="hero-split-text">
+    <p class="eyebrow">{{ include.eyebrow }}</p>
+    <h1>{{ include.doc.title }}</h1>
+    {{ include.meta }}
+  </div>
+</header>
+{% else %}
+{% if cover %}{% include photo.html doc=include.doc photo=cover class="hero" %}{% endif %}
+<header class="title-block">
+  <p class="eyebrow">{{ include.eyebrow }}</p>
+  <h1>{{ include.doc.title }}</h1>
+  {{ include.meta }}
+</header>
+{% endif %}

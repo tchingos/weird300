@@ -1,18 +1,26 @@
 """Turn camera photos into web-ready JPEGs with no metadata.
 
-HEIC from an iPhone is supported. Each photo is rotated upright, resized so
-its long edge is at most MAX_EDGE, and saved without EXIF, so GPS and camera
-details are never published. Date and position are read first and returned.
+HEIC from an iPhone is supported. Each photo is rotated upright, converted
+from its embedded colour profile (Display P3, or HDR curves like PQ) into
+plain sRGB, resized so its long edge is at most MAX_EDGE, and saved without
+any metadata, so GPS and camera details are never published. Date and
+position are read first and returned.
+
+The colour conversion matters: dropping a profile without converting makes
+wide-gamut photos look dull and HDR photos look flat and grey.
 """
 
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
-from PIL import Image, ImageOps
+import io
+
+from PIL import Image, ImageCms, ImageOps
 from pillow_heif import register_heif_opener
 
 from . import exif
+from .shapes import shape_of
 
 register_heif_opener()
 
@@ -25,6 +33,7 @@ SUFFIXES = {".jpg", ".jpeg", ".png", ".heic", ".heif", ".webp", ".tif", ".tiff"}
 class ImportedPhoto:
     file: str
     source: Path
+    shape: str
     taken: date | None
     position: tuple[float, float] | None
 
@@ -51,11 +60,23 @@ def import_all(sources: list[Path], dest: Path) -> list[ImportedPhoto]:
     return [_import_one(src, dest / f"{n:02d}.jpg") for n, src in enumerate(sources, start=first)]
 
 
+SRGB = ImageCms.ImageCmsProfile(ImageCms.createProfile("sRGB"))
+
+
+def _to_srgb(img: Image.Image) -> Image.Image:
+    rgb = img.convert("RGB")
+    icc = img.info.get("icc_profile")
+    if not icc:
+        return rgb  # untagged photos are assumed to be sRGB already
+    source = ImageCms.ImageCmsProfile(io.BytesIO(icc))
+    return ImageCms.profileToProfile(rgb, source, SRGB, renderingIntent=ImageCms.Intent.PERCEPTUAL, outputMode="RGB")
+
+
 def _import_one(src: Path, out: Path) -> ImportedPhoto:
     with Image.open(src) as img:
         taken, position = exif.capture_date(img), exif.gps_position(img)
-        clean = ImageOps.exif_transpose(img).convert("RGB")
+        clean = _to_srgb(ImageOps.exif_transpose(img))
     clean.thumbnail((MAX_EDGE, MAX_EDGE), Image.Resampling.LANCZOS)
     clean.info.clear()  # nothing from the source rides along into the save
     clean.save(out, "JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
-    return ImportedPhoto(file=out.name, source=src, taken=taken, position=position)
+    return ImportedPhoto(file=out.name, source=src, shape=shape_of(clean.size), taken=taken, position=position)

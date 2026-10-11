@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="place post">
+  {% capture meta %}<ul class="facts"><li>{{ page.date | date: "%-d %B %Y" }}</li></ul>{% endcapture %}
+  {% include hero.html doc=page eyebrow="Journal" meta=meta %}
+
+  <div class="prose">{{ content }}</div>
+
+  {% include gallery.html doc=page %}
+
+  {% include post-nav.html post=page %}
+</article>

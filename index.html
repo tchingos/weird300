@@ -17,3 +17,11 @@ layout: default
 </ul>
 {% if visits.size > 6 %}<p class="more"><a href="{{ '/places/' | relative_url }}">See all {{ visits.size }} places →</a></p>{% endif %}
 {% endif %}
+
+{% if site.posts.size > 0 %}
+<h2 class="section-title">From the journal</h2>
+<ul class="cards">
+  {% for post in site.posts limit: 3 %}<li>{% include post-card.html post=post %}</li>{% endfor %}
+</ul>
+{% if site.posts.size > 3 %}<p class="more"><a href="{{ '/journal/' | relative_url }}">See all journal posts →</a></p>{% endif %}
+{% endif %}

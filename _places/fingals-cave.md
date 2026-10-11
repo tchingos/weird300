@@ -12,12 +12,16 @@ before_book: true
 summary: Our accidental first Weird 300, reached by boat from Tobermory with some birding on the way.
 photos:
 - file: 02.jpg
+  shape: landscape
   caption: On the boat, with Staffa and its columns behind us.
 - file: 03.jpg
+  shape: landscape
   caption: Tobermory's painted harbourfront, where the boat leaves from.
 - file: 04.jpg
+  shape: portrait
   caption: The mouth of Fingal's Cave. The path along the columns on the right leads inside.
 - file: 01.jpg
+  shape: portrait
   caption: Me, swimming below the columns.
 ---
 

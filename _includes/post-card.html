@@ -1,0 +1,3 @@
+{%- comment -%} A card for one journal post. Params: post. {%- endcomment -%}
+{% capture meta %}{{ include.post.date | date: "%-d %B %Y" }}{% endcapture %}
+{% include card.html doc=include.post kicker="Journal" meta=meta %}

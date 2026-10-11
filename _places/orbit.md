@@ -12,9 +12,11 @@ before_book: true
 summary: A tall red tangle we spotted from a Stratford playground, and only later learned had a slide wrapped around it.
 photos:
 - file: 01.jpg
+  shape: portrait
   caption: Emma on the rope bridge, with the Orbit behind her and London Stadium on the right.
   focus: 50% 17%
 - file: 02.jpg
+  shape: portrait
   caption: Crossing the bridge, with the Orbit's red loops overhead.
 ---
 
