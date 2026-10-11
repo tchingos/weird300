@@ -88,7 +88,8 @@ Only now, after the page is live, delete the raw photos from `inbox/`.
 Tim emails close friends and family about each new post himself. Your job is
 only the draft; never send it.
 
-1. Read the list: `/usr/bin/grep -v '^#' ~/.config/weird300/subscribers.txt | /usr/bin/grep .`
+1. Read the list (one address per line, with an optional `# Name` after it):
+   `/usr/bin/sed 's/#.*//' ~/.config/weird300/subscribers.txt | /usr/bin/tr -d ' \t' | /usr/bin/grep .`
    This file is private and lives outside the repo on purpose. Never copy
    addresses into the repo, a commit, or anything published.
 2. Create a Gmail draft with `mcp__claude_ai_Gmail__create_draft`:
