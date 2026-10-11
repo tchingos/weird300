@@ -92,7 +92,8 @@ def new_place(path: Path, **meta) -> Page:
 
 def new_post(path: Path, title: str) -> Page:
     """A fresh journal post. Its date lives in the filename, as Jekyll expects."""
-    return Page(path, {"title": title, "summary": PLACEHOLDER, "photos": []}, f"{PLACEHOLDER}: write the post.")
+    meta = {"title": title, "summary": PLACEHOLDER, "location": "", "photos": []}
+    return Page(path, meta, f"{PLACEHOLDER}: write the post.")
 
 
 def post_date(page: Page) -> date:

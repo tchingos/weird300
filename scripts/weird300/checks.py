@@ -21,7 +21,7 @@ BANNED_CHARACTERS = {"\u2014": "em dash", "\u2013": "en dash"}
 def check_page(page: Page) -> list[str]:
     common = [*_required_fields(page), *_placeholders(page), *_writing(page), *_photos(page)]
     if page.kind == "post":
-        return [*_post_name(page), *common]
+        return [*_post_name(page), *_post_pin(page), *common]
     return [*_category(page), *_visited(page), *_coordinates(page), *common]
 
 
@@ -31,6 +31,18 @@ def _required_fields(page: Page) -> list[str]:
 
 def _post_name(page: Page) -> list[str]:
     return [] if POST_NAME.match(page.path.stem) else ["post files must be named YYYY-MM-DD-slug.md"]
+
+
+def _post_pin(page: Page) -> list[str]:
+    """A journal post is mapped only if it carries a location name and both coordinates."""
+    lat, lng = page.meta.get("lat"), page.meta.get("lng")
+    if lat is None and lng is None:
+        return []
+    if lat is None or lng is None:
+        return ["a mapped post needs both `lat` and `lng`"]
+    if not page.meta.get("location"):
+        return ["a mapped post needs a `location` to name its pin"]
+    return _coordinates(page)
 
 
 def _category(page: Page) -> list[str]:

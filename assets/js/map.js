@@ -11,10 +11,14 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+  var style = getComputedStyle(document.documentElement);
+  var fill = {
+    place: style.getPropertyValue('--accent').trim(),
+    post: style.getPropertyValue('--journal').trim()
+  };
   var points = places.map(function (p) {
     var marker = L.circleMarker([p.lat, p.lng], {
-      radius: 8, color: '#fff', weight: 2, fillColor: accent, fillOpacity: 1
+      radius: 8, color: '#fff', weight: 2, fillColor: fill[p.kind], fillOpacity: 1
     }).addTo(map);
     var link = document.createElement('a');
     link.href = p.url;

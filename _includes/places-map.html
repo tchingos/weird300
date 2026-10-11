@@ -1,6 +1,11 @@
 {%- comment -%}
-  A Leaflet map with one pin per place. Params: places (array), class (extra CSS class).
-  assets/js/map.js reads the JSON from data-places and draws it.
+  A Leaflet map with one pin per place, plus a pin for any journal post that
+  carries coordinates. Params: places (array), posts (array, optional),
+  class (extra CSS class). Each pin's JSON comes from map-point.html, and
+  assets/js/map.js reads the lot from data-places and draws it.
 {%- endcomment -%}
-{% capture places_json %}[{% for p in include.places %}{"title":{{ p.title | jsonify }},"lat":{{ p.lat }},"lng":{{ p.lng }},"url":{{ p.url | relative_url | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
+{%- capture pins -%}
+{% for p in include.places %}{% include map-point.html doc=p kind="place" %}{% endfor %}{% for p in include.posts %}{% include map-point.html doc=p kind="post" %}{% endfor %}
+{%- endcapture -%}
+{% capture places_json %}[{{ pins | strip | remove_first: "," }}]{% endcapture %}
 <div id="map" class="map {{ include.class }}" data-places="{{ places_json | strip | escape }}"></div>

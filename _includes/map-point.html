@@ -1,0 +1,9 @@
+{%- comment -%}
+  One pin's JSON for places-map.html, with a leading comma so the caller can
+  join any number of them. Params: doc, kind ("place" or "post"), which
+  assets/js/map.js turns into the pin's colour. A doc with no coordinates
+  draws no pin.
+{%- endcomment -%}
+{%- if include.doc.lat and include.doc.lng -%}
+,{"title":{{ include.doc.title | jsonify }},"lat":{{ include.doc.lat }},"lng":{{ include.doc.lng }},"url":{{ include.doc.url | relative_url | jsonify }},"kind":{{ include.kind | jsonify }}}
+{%- endif -%}

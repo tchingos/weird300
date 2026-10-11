@@ -1,6 +1,9 @@
 ---
 title: The book arrives
 summary: An early birthday present, and the official start of working through the Weird Guide on purpose.
+location: London
+lat: 51.511445
+lng: -0.211769
 photos:
 - file: 01.jpg
   shape: portrait

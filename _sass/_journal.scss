@@ -1,0 +1,5 @@
+// The journal's own colour, used wherever a journal post appears next to the
+// 300: its card label, its page eyebrow, and its pin on the map (map.js reads
+// --journal straight from the tokens).
+.card-journal .card-cat { color: var(--journal); }
+.post .eyebrow { color: var(--journal); }

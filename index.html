@@ -6,7 +6,7 @@ layout: default
 {% include progress.html done=visits.size %}
 
 <h2 class="section-title">The map so far</h2>
-{% include places-map.html places=visits %}
+{% include places-map.html places=visits posts=site.posts %}
 
 <h2 class="section-title">Latest visits</h2>
 {% if visits.size == 0 %}
