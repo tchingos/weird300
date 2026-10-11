@@ -6,19 +6,48 @@ permalink: /places/
 {% assign by_category = site.places | sort: "visited" | reverse | group_by: "category" %}
 <header class="page-head">
   <h1>Places</h1>
-  <p>Every place visited so far, grouped the way the book groups them.</p>
+  <p>Every place I have visited so far. Search them, filter by the book's sections, or see them in the order I went.</p>
 </header>
 
+<div class="filter" id="places-filter" hidden>
+  <div class="filter-top">
+    <div class="filter-search">
+      <label for="places-search">Search places</label>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input type="search" id="places-search" placeholder="Search by name, place or story" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="filter-views" role="group" aria-label="View">
+      <button type="button" class="filter-view" data-view="category" aria-pressed="true">By category</button>
+      <button type="button" class="filter-view" data-view="timeline" aria-pressed="false">Timeline</button>
+    </div>
+  </div>
+  <div class="filter-chips" role="group" aria-label="Category">
+    <button type="button" class="chip" data-category="" aria-pressed="true">All <span class="chip-count"></span></button>
+    {% for category in site.data.categories %}<button type="button" class="chip" data-category="{{ category.name | escape }}" aria-pressed="false">{{ category.name }} <span class="chip-count"></span></button>
+    {% endfor %}
+  </div>
+  <p class="filter-count" aria-live="polite"></p>
+</div>
+
+<div id="places-results">
 {% for category in site.data.categories %}
   {% assign group = by_category | where: "name", category.name | first %}
   <section class="category">
     <h2 class="section-title">{{ category.name }} <span>{{ group.items.size | default: 0 }}</span></h2>
     {% if group %}
     <ul class="cards">
-      {% for place in group.items %}<li>{% include place-card.html place=place %}</li>{% endfor %}
+      {% for place in group.items %}<li data-category="{{ place.category | escape }}" data-visited="{{ place.visited | date: '%Y-%m-%d' }}" data-search="{{ place.title | append: ' ' | append: place.region | append: ' ' | append: place.summary | strip_newlines | downcase | escape }}">{% include place-card.html place=place %}</li>{% endfor %}
     </ul>
     {% else %}
     <p class="empty">None yet.</p>
     {% endif %}
   </section>
 {% endfor %}
+</div>
+
+<div class="filter-empty" id="places-empty" hidden>
+  <p>Nothing matches that yet. Try another word or a different category.</p>
+  <button type="button" class="chip" id="places-clear">Show every place</button>
+</div>
+
+<script src="{{ '/assets/js/places-filter.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

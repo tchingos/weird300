@@ -1,0 +1,131 @@
+// Search, category chips and view toggle on the Places page
+// (places.html, assets/js/places-filter.js).
+.filter {
+  margin-top: 2rem;
+  display: grid;
+  gap: 0.85rem;
+  &[hidden] { display: none; }
+}
+
+.filter-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.filter-search {
+  position: relative;
+  flex: 1 1 16rem;
+  label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  svg {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+  }
+  input {
+    width: 100%;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--soft);
+    border: 1px solid transparent;
+    border-radius: 99px;
+    padding: 0.6rem 1rem 0.6rem 2.6rem;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    &::placeholder { color: var(--muted); }
+    &:focus { outline: none; border-color: var(--accent); background: var(--bg); }
+  }
+}
+
+// A two-way segmented control.
+.filter-views {
+  display: inline-flex;
+  padding: 0.25rem;
+  background: var(--soft);
+  border-radius: 99px;
+}
+.filter-view {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-radius: 99px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  &:hover { color: var(--ink); }
+  &[aria-pressed="true"] { background: var(--bg); color: var(--ink); box-shadow: var(--shadow); }
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.chip {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: var(--soft);
+  border: 1px solid transparent;
+  border-radius: 99px;
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  &:hover { color: var(--ink); border-color: var(--line); }
+  &.is-empty { opacity: 0.55; }
+  &[aria-pressed="true"] { background: var(--accent); color: var(--bg); opacity: 1; }
+}
+.chip-count { font-weight: 600; margin-left: 0.15rem; }
+.chip-count:empty { display: none; }
+
+.filter-view, .chip {
+  &:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+}
+
+.filter-count {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+// The first heading sits closer to the controls than a normal section break.
+.filter:not([hidden]) + #places-results > .category:first-child .section-title { margin-top: 2rem; }
+
+.filter-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: 1.5rem;
+  background: var(--soft);
+  border-radius: var(--radius);
+  color: var(--muted);
+  p { margin: 0 0 1rem; }
+  .chip { background: var(--bg); color: var(--ink); border-color: var(--line); }
+}
+
+// On phones the chips scroll sideways in one row instead of stacking.
+@media (max-width: 40rem) {
+  .filter-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: -1.25rem;
+    padding: 0.1rem 1.25rem 0.4rem;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+  .filter-views { width: 100%; }
+  .filter-view { flex: 1; }
+}

@@ -2,30 +2,27 @@
 
 HEIC from an iPhone is supported. Each photo is rotated upright, converted
 from its embedded colour profile (Display P3, or HDR curves like PQ) into
-plain sRGB, resized so its long edge is at most MAX_EDGE, and saved without
-any metadata, so GPS and camera details are never published. Date and
-position are read first and returned.
+plain sRGB, and saved at two sizes (see renditions.py) without any
+metadata, so GPS and camera details are never published. Date and position
+are read first and returned.
 
 The colour conversion matters: dropping a profile without converting makes
 wide-gamut photos look dull and HDR photos look flat and grey.
 """
 
+import io
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
-import io
-
 from PIL import Image, ImageCms, ImageOps
 from pillow_heif import register_heif_opener
 
-from . import exif
+from . import exif, renditions
 from .shapes import shape_of
 
 register_heif_opener()
 
-MAX_EDGE = 2000
-JPEG_QUALITY = 82
 SUFFIXES = {".jpg", ".jpeg", ".png", ".heic", ".heif", ".webp", ".tif", ".tiff"}
 
 
@@ -76,7 +73,5 @@ def _import_one(src: Path, out: Path) -> ImportedPhoto:
     with Image.open(src) as img:
         taken, position = exif.capture_date(img), exif.gps_position(img)
         clean = _to_srgb(ImageOps.exif_transpose(img))
-    clean.thumbnail((MAX_EDGE, MAX_EDGE), Image.Resampling.LANCZOS)
-    clean.info.clear()  # nothing from the source rides along into the save
-    clean.save(out, "JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
+    renditions.write(clean, out)
     return ImportedPhoto(file=out.name, source=src, shape=shape_of(clean.size), taken=taken, position=position)

@@ -5,7 +5,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from . import exif, site
+from . import exif, renditions, site
 from .shapes import shape_of
 from .pages import PLACEHOLDER, POST_NAME, Page
 
@@ -89,10 +89,20 @@ def _photos(page: Page) -> list[str]:
         with Image.open(path) as img:
             if exif.has_metadata(img):
                 problems.append(f"photo {name} still has metadata; re-import it")
+            if max(img.size) > renditions.MAIN_EDGE:
+                problems.append(f"photo {name} is {max(img.size)}px; the budget is {renditions.MAIN_EDGE}px")
             actual = shape_of(img.size)
         if photo.get("shape") != actual:
             problems.append(f"photo {name} has shape {photo.get('shape')!r} but is actually {actual!r}")
-    unlisted = sorted(p.name for p in folder.glob("*") if p.is_file() and p.name not in listed) if folder.exists() else []
+        thumb = renditions.thumb_path(path)
+        if not thumb.exists():
+            problems.append(f"photo {name} has no thumbnail at {thumb.relative_to(site.ROOT)}")
+            continue
+        with Image.open(thumb) as img:
+            if exif.has_metadata(img) or max(img.size) > renditions.THUMB_EDGE:
+                problems.append(f"thumbnail for {name} has metadata or is over {renditions.THUMB_EDGE}px")
+    files = [p for p in (folder.glob("*"), (folder / renditions.THUMB_DIR).glob("*")) for p in p] if folder.exists() else []
+    unlisted = sorted(str(p.relative_to(folder)) for p in files if p.is_file() and p.name not in listed)
     problems += [f"photo {n} is in the folder but not on the page" for n in unlisted]
     return problems
 

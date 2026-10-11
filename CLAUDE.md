@@ -29,7 +29,7 @@ Jekyll install, so the live build is the real test.
 | `_places/<slug>.md` | One page per visit: YAML front matter plus the write-up. `visited` is the trip date; `published` is when the page went up (set automatically) |
 | `_posts/YYYY-MM-DD-<slug>.md` | Journal posts: anything that is not one of the 300. Shown at `/journal/`, and not counted or mapped |
 | `assets/journal/<slug>/` | A journal post's photos |
-| `assets/photos/<slug>/` | That visit's photos, `01.jpg` onward. The first listed is the hero and card image; give it `focus: "50% 25%"` (any CSS object-position) when a centre crop would cut off the subject |
+| `assets/photos/<slug>/` | That visit's photos, `01.jpg` onward, each with a small copy in `thumbs/` for cards and the gallery. The first listed is the hero and card image; give it `focus: "50% 25%"` (any CSS object-position) when a centre crop would cut off the subject |
 | `_data/categories.yml` | The book's seven sections; `category` must match one |
 | `_data/home.yml` | Home page headline and optional hero photo |
 | `_layouts/` | `default` (shell), `place` (one visit), `post` (one journal post) |
@@ -53,13 +53,16 @@ uv run scripts/new_visit.py "Place Name" inbox/<folder> --category "Rock Formati
 uv run scripts/new_visit.py "Place Name" more.jpg      # add photos to an existing page
 uv run scripts/new_post.py "Post title" inbox --date 2026-10-06            # a journal post
 uv run scripts/check.py                                # must pass before pushing
+uv run scripts/rebuild_photos.py                       # only after changing the size budget
 ```
 
 `uv` pulls Pillow, pillow-heif and PyYAML on first run; nothing to install.
 
 Photos must go through `new_visit.py` or `new_post.py`. They rotate photos
 upright, convert their colour profile to sRGB (iPhone HDR and Display P3
-photos look grey or dull otherwise), resize them to 2000px, strip all
+photos look grey or dull otherwise), save a 1600px main copy and a 720px
+thumbnail (the size budget in `weird300/renditions.py`, which keeps 300
+places at about 480 MB, under GitHub Pages' 1 GB cap), strip all
 metadata so no GPS data is published, and record each photo's `shape`
 (`landscape` or `portrait`, see `weird300/shapes.py`). The cover photo's
 shape picks the page's hero layout. `check.py` rejects any photo that still

@@ -1,7 +1,10 @@
 {%- comment -%}
-  The URL of one photo. Params: doc (a place or journal post), file (filename).
+  The URL of one photo. Params: doc (a place or journal post), file (filename),
+  thumb (true for the small version used by cards and the gallery grid; see
+  scripts/weird300/renditions.py).
   Every template builds photo paths through here, so the folder layout lives in
   one place: places in assets/photos/<slug>/, journal posts in assets/journal/<slug>/.
 {%- endcomment -%}
 {%- if include.doc.collection == "posts" -%}{%- assign root = "/assets/journal/" -%}{%- else -%}{%- assign root = "/assets/photos/" -%}{%- endif -%}
-{{- root | append: include.doc.slug | append: '/' | append: include.file | relative_url -}}
+{%- if include.thumb -%}{%- assign root = root | append: include.doc.slug | append: '/thumbs/' -%}{%- else -%}{%- assign root = root | append: include.doc.slug | append: '/' -%}{%- endif -%}
+{{- root | append: include.file | relative_url -}}
