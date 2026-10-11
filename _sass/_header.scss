@@ -17,7 +17,7 @@
   height: 3.75rem;
 }
 .wordmark {
-  font-size: 1.15rem;
+  font-size: 1.45rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   text-decoration: none;
@@ -35,6 +35,7 @@
 // On phones the menu must fit on one line. Map only jumps to the home page's
 // map, which Home already reaches, so it is the one to drop.
 @media (max-width: 30rem) {
+  .wordmark { font-size: 1.2rem; } // the full menu still has to fit beside it
   .site-header nav a { margin-left: 0.9rem; font-size: 0.9rem; }
   .site-header .nav-map { display: none; }
 }
