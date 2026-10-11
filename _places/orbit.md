@@ -1,5 +1,5 @@
 ---
-title: Orbit
+title: ArcelorMittal Orbit
 category: Public Artworks
 region: Queen Elizabeth Olympic Park, London
 visited: 2022-11-20
@@ -10,7 +10,7 @@ book_page: null
 lat: 51.53806
 lng: -0.01222
 before_book: true
-summary: A tall red tangle Emma and I spotted from a Stratford playground, and only later learned had a slide wrapped around it.
+summary: A rainy November day out with Emma in Stratford, and a twisting red tower that turned out to have a slide wrapped around it.
 photos:
 - file: 01.jpg
   shape: portrait
@@ -21,8 +21,8 @@ photos:
   caption: Crossing the bridge, with the Orbit's red loops overhead.
 ---
 
-I had only just moved to London when Emma and I spent a November day out around Stratford and the London Stadium, just to take in the sights. Emma found a rope bridge in a playground near the stadium, and while she crossed it I snapped a few photos of the twisting red tower behind her without knowing what it was.
+One rainy weekend in November 2022, just a few months after we moved to the UK, Emma and I were looking for an adventure while Jillian tackled some work. We headed to Stratford and the London Stadium to explore Pleasure Gardens Play Areas and see a bit of East London. Emma enjoyed a rope bridge in a playground near the stadium. While she crossed it, I snapped a few photos of a twisting red tower behind her without knowing what it was.
 
-So we took a short walk over to find out, and learned that it has a slide. The tower is the ArcelorMittal Orbit, which the book simply calls Orbit. Anish Kapoor and the engineer Cecil Balmond designed it for the 2012 Olympics, and at 114.5 metres it's the tallest sculpture in Britain. In 2016 the artist Carsten Höller wrapped a tunnel slide around it, 178 metres long and billed as the longest tunnel slide in the world.
+Curious about the tall structure, we took a walk over and learned that it was a large art piece built during the 2012 Olympics. The tower is the ArcelorMittal Orbit, which the book simply calls Orbit. Anish Kapoor and the engineer Cecil Balmond designed it for the 2012 Olympics. At 114.5 metres, it’s the tallest sculpture in Britain. In 2016, the artist Carsten Höller wrapped a tunnel slide around it, 178 metres long and billed as the longest tunnel slide in the world.
 
-We didn't ride it that day. It's firmly on our bucket list, and when we do, this post will get an update with much better pictures.
+We didn’t ride it that day, as it was sold out and sliders must be 130 cm tall and 8+ years old. That said, it’s firmly on our bucket list, and when we do, this post will get a proper refresh with better pictures and notes on our slide experience.
