@@ -4,7 +4,7 @@ category: Public Artworks
 region: Balallan, Isle of Lewis
 visited: 2023-05-12
 published: 2026-10-06
-with: Barry
+with: Friends
 entry: null
 book_page: null
 lat: 58.08
@@ -25,12 +25,15 @@ photos:
 - file: 02.jpg
   shape: portrait
   caption: Up on the viewing platform at the top.
+- file: 05.jpg
+  shape: landscape
+  caption: Barry and me at Luskentyre Beach.
 ---
 
-The excuse for this one was music. In May 2023 I went to the Isles of Lewis and Harris to see Fred again.. play a very intimate show at Talla na Mara, and I went with my friend Barry. We met on Instagram as music friends and spent the better part of two years chatting on WhatsApp and Instagram before we finally met in person. Barry lives in Scotland, so he could come and meet me, and we drove down to the show in his super sporty green hatchback.
+In May 2023 I went to the Isles of Lewis and Harris to see Fred again.. play a very intimate show at a small community center called Talla na Mara. I went with my internet friend Barry. We met in a WhatsApp group related to electronic music and stayed in touch. Barry lives in Scotland and helped me get the Fred again.. tickets. As such, he was the natural choice for a buddy to join me for the show.
 
-The memorial sits on a hillock above the road just south of Balallan, so we pulled over on the way. It's a beehive of dry stone with three doorways, one for each of the districts of South Lochs, Kinloch and North Lochs, and an iron stair inside leads up to a viewing platform at the top.
+We stayed in Stornoway and drove an hour south to the show. On our way there, we stumbled upon Pairc Deer Raiders Memorial, called simply Land Raiders Monument on Google Maps. The memorial sits on a hillock above the road just south of Balallan. It’s a beehive of dry stone with three doorways, one for each of the districts of South Lochs, Kinloch, and North Lochs. There’s an iron stair inside that leads up to a viewing platform at the top.
 
-It marks the Pairc Deer Raid of November 1887. Crofters from the surrounding villages, short of land and living in poverty, marched into the deer forest on the Park estate, killed deer, and openly challenged the landowner, Lady Matheson, over land that had been cleared for sport. Six of the raiders were tried in Edinburgh and acquitted. The cairn was designed by the artist Will Maclean in the 1990s, and it's one of three on Lewis that remember the land struggles of the 1880s.
+Fun facts: It marks the Pairc Deer Raid of November 1887. Crofters from the surrounding villages, short of land and living in poverty, marched into the deer forest on the Park estate, killed deer, and openly challenged the landowner, Lady Matheson, over land that had been cleared for sport. Six of the raiders were tried in Edinburgh and acquitted. The cairn was designed by the artist Will Maclean in the 1990s, and it’s one of three on Lewis that remember the land struggles of the 1880s.
 
-Then it was back in the car and on to the concert, which was a very cool show.
+After a quick visit, we were back in the car and on to the concert, which was a very cool show. This was the third place I unknowingly stumbled upon before finding the book.

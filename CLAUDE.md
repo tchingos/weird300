@@ -14,6 +14,8 @@ Jekyll install, so the live build is the real test.
   post has said who that is ("Jillian and I", "Barry and I"). Warm and plain,
   with contractions, not gushing.
 - When Tim supplies his own text, keep it as written. Fix only clear typos.
+- The `with` field names only the regulars (Jillian, Emma). Anyone else,
+  however many, is `Friends`. Name them in the write-up instead.
 - Only state facts Tim gave you or that are well established. Never invent
   details of the visit (birds seen, weather, who said what). Ask instead.
 - Never copy text from the book. Credit it, and point readers to it.
