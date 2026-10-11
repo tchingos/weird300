@@ -9,6 +9,9 @@
   height: 78vh;
   max-height: 46rem;
   background: var(--soft);
+  // The banner has a fixed height, so its link and photo fill it. Elsewhere
+  // (gallery, portrait hero) links size to their photo, keeping captions close.
+  a[data-lightbox] { height: 100%; }
   img { width: 100%; height: 100%; object-fit: cover; }
   figcaption {
     position: absolute;

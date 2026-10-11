@@ -1,6 +1,6 @@
 // Full-screen photo viewer (see assets/js/lightbox.js).
 // The photo always fits inside the screen: nothing in here can scroll.
-a[data-lightbox] { display: block; height: 100%; cursor: zoom-in; }
+a[data-lightbox] { display: block; cursor: zoom-in; }
 
 .lightbox-open { overflow: hidden; }
 

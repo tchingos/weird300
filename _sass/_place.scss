@@ -28,7 +28,10 @@
   p { margin: 0 0 1.3em; }
 }
 
+// "Getting there" starts a new section: a divider and generous space above it.
 .where {
-  margin-top: 3.5rem;
+  margin-top: 4.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
   h2 { font-size: 1.5rem; margin: 0 0 1rem; }
 }
