@@ -10,8 +10,10 @@ Jekyll install, so the live build is the real test.
 
 - Never use em dashes or en dashes. Use a full stop, a colon, or a comma.
   `scripts/check.py` fails a page that contains one.
-- Write in full sentences, in Tim's voice ("we", "Jillian and I"). Warm and
-  plain, not gushing.
+- Write in the first person as Tim Chingos ("I"). Only say "we" once the
+  post has said who that is ("Jillian and I", "Barry and I"). Warm and plain,
+  with contractions, not gushing.
+- When Tim supplies his own text, keep it as written. Fix only clear typos.
 - Only state facts Tim gave you or that are well established. Never invent
   details of the visit (birds seen, weather, who said what). Ask instead.
 - Never copy text from the book. Credit it, and point readers to it.
@@ -24,7 +26,7 @@ Jekyll install, so the live build is the real test.
 
 | Path | What it is |
 |---|---|
-| `_places/<slug>.md` | One page per visit: YAML front matter plus the write-up |
+| `_places/<slug>.md` | One page per visit: YAML front matter plus the write-up. `visited` is the trip date; `published` is when the page went up (set automatically) |
 | `_posts/YYYY-MM-DD-<slug>.md` | Journal posts: anything that is not one of the 300. Shown at `/journal/`, and not counted or mapped |
 | `assets/journal/<slug>/` | A journal post's photos |
 | `assets/photos/<slug>/` | That visit's photos, `01.jpg` onward. The first listed is the hero and card image; give it `focus: "50% 25%"` (any CSS object-position) when a centre crop would cut off the subject |

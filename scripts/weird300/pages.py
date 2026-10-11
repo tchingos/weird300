@@ -78,6 +78,7 @@ def new_place(path: Path, **meta) -> Page:
         "category": meta["category"],
         "region": meta.get("region") or PLACEHOLDER,
         "visited": meta.get("visited") or PLACEHOLDER,
+        "published": date.today(),  # when the page went up; fix it if publishing slips
         "with": meta.get("companions") or "",
         "entry": meta.get("entry"),
         "book_page": meta.get("book_page"),

@@ -3,6 +3,7 @@
 <ul class="facts">
   <li>{{ p.region }}</li>
   <li>Visited {{ p.visited | date: "%-d %B %Y" }}</li>
+  {% if p.published %}<li>Published {{ p.published | date: "%-d %B %Y" }}</li>{% endif %}
   {% if p.with and p.with != "" %}<li>With {{ p.with }}</li>{% endif %}
   {% if p.entry %}<li>Weird Guide no. {{ p.entry }}</li>{% endif %}
   {% if p.book_page %}<li>Book p.{{ p.book_page }}</li>{% endif %}

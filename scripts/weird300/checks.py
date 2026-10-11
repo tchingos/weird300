@@ -10,7 +10,7 @@ from .shapes import shape_of
 from .pages import PLACEHOLDER, POST_NAME, Page
 
 REQUIRED = {
-    "place": ("title", "category", "region", "visited", "lat", "lng", "summary"),
+    "place": ("title", "category", "region", "visited", "published", "lat", "lng", "summary"),
     "post": ("title", "summary"),
 }
 # Generous box around Great Britain, Northern Ireland and the islands.
@@ -40,10 +40,17 @@ def _category(page: Page) -> list[str]:
 
 
 def _visited(page: Page) -> list[str]:
-    visited = page.meta.get("visited")
-    if visited == PLACEHOLDER:
-        return []  # reported by _placeholders
-    return [] if isinstance(visited, date) else [f"`visited` must be YYYY-MM-DD, got {visited!r}"]
+    problems = []
+    for key in ("visited", "published"):
+        value = page.meta.get(key)
+        if value in (PLACEHOLDER, None):
+            continue  # reported by _placeholders or _required_fields
+        if not isinstance(value, date):
+            problems.append(f"`{key}` must be YYYY-MM-DD, got {value!r}")
+    visited, published = page.meta.get("visited"), page.meta.get("published")
+    if isinstance(visited, date) and isinstance(published, date) and published < visited:
+        problems.append("`published` is before `visited`")
+    return problems
 
 
 def _coordinates(page: Page) -> list[str]:
