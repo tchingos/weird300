@@ -20,6 +20,7 @@ photos:
   caption: Jillian, Emma, and me in front of the bridge.
 - file: 04.jpg
   shape: portrait
+  focus: "50% 12%"
   caption: Emma and her snowball, on the walkway above the river.
 - file: 01.jpg
   shape: portrait

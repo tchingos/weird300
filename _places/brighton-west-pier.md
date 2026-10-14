@@ -12,12 +12,12 @@ lng: -0.15201
 before_book: true
 summary: The burnt out skeleton of a Victorian pleasure pier, standing out in the water off the seafront, on a chilly sunny day trip with Emma.
 photos:
-- file: 02.jpg
-  shape: landscape
-  caption: Emma on the seafront, with what is left of the pier out in the water behind her.
 - file: 01.jpg
   shape: portrait
   caption: The pebbles and shells Emma arranged on the stone, with the pier on the horizon.
+- file: 02.jpg
+  shape: landscape
+  caption: Emma on the seafront, with what is left of the pier out in the water behind her.
 - file: 03.jpg
   shape: portrait
   caption: Emma up by the kitchen ceiling in the upside down house.
