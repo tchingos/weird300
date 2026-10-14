@@ -1,0 +1,10 @@
+# Asks crawlers to stay away from this site.
+#
+# Heads up: crawlers only read robots.txt at the DOMAIN root, which for this
+# site is https://tchingos.github.io/robots.txt, not here. A project page
+# cannot serve that file. This one is served at /weird300/robots.txt and is
+# therefore ignored today. It becomes real if this site ever moves to its own
+# domain. The directive that actually works here is the noindex meta tag in
+# _layouts/default.html.
+User-agent: *
+Disallow: /

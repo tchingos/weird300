@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Keep the site out of search results. Share the link yourself instead. -->
+  <meta name="robots" content="noindex, nofollow">
   <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.summary | default: site.description | strip | escape }}">
   <!-- Synchronous on purpose: it applies a saved light/dark choice before the first paint. -->
