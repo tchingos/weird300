@@ -1,0 +1,9 @@
+{%- comment -%}
+  GoatCounter, loaded only when `goatcounter` is set in _config.yml, so the
+  site works unchanged with no analytics at all. It sets no cookies and
+  collects no personal data, so there is nothing to put a consent banner on.
+  To keep your own visits out of the numbers, see CLAUDE.md.
+{%- endcomment -%}
+{% if site.goatcounter %}
+<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{% endif %}

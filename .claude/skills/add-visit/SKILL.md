@@ -119,7 +119,9 @@ google.com redirect, and readers then hit a "Redirect Notice" page.
 1. Write `emails/<slug>.txt` (git-ignored): the subject on the first line,
    a blank line, then a short plain-text note in Tim's voice (two or three
    sentences, same writing rules, no em dashes), the post's full `https://`
-   link on its own line, and "Tim" at the end. Plain text only; no images.
+   link on its own line with `?ref=email` on the end, and "Tim" at the end.
+   That suffix is what separates family clicks from strangers in the
+   visitor numbers. Plain text only; no images.
    Subject: `New on Weird 300: <Title>`.
 2. Run `python3 scripts/compose_email.py emails/<slug>.txt`. It opens a
    Gmail compose window addressed to Tim with everyone in

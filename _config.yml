@@ -7,6 +7,10 @@ url: https://tchingos.github.io
 total_places: 300
 timezone: Europe/London
 
+# GoatCounter site code, as in <code>.goatcounter.com. Leave it unset and no
+# analytics script is loaded at all.
+# goatcounter: weird300
+
 # Journal posts (_posts/) live under /journal/.
 permalink: /journal/:title/
 
