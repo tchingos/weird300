@@ -1,0 +1,47 @@
+// The light and dark switch in the header (see _includes/theme-toggle.html).
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 1rem;
+  padding: 0;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  flex: none;
+  &:hover { color: var(--accent); border-color: var(--line); }
+  &:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  &[hidden] { display: none; }
+}
+
+// Both icons sit in the button's one grid cell, so swapping them cannot shift
+// the header. Every theme state needs its own rule: styling only the
+// [data-theme] case would leave a visitor whose system is dark, and who has
+// never touched the switch, looking at a sun on a dark page.
+.theme-icon {
+  grid-area: 1 / 1;
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.theme-icon-moon { display: none; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-icon-sun { display: none; }
+  :root:not([data-theme="light"]) .theme-icon-moon { display: block; }
+}
+:root[data-theme="dark"] {
+  .theme-icon-sun { display: none; }
+  .theme-icon-moon { display: block; }
+}
+:root[data-theme="light"] {
+  .theme-icon-sun { display: block; }
+  .theme-icon-moon { display: none; }
+}

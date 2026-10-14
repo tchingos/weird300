@@ -11,20 +11,32 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  var style = getComputedStyle(document.documentElement);
-  var fill = {
-    place: style.getPropertyValue('--accent').trim(),
-    post: style.getPropertyValue('--journal').trim()
-  };
+  function fills() {
+    var style = getComputedStyle(document.documentElement);
+    return {
+      place: style.getPropertyValue('--accent').trim(),
+      post: style.getPropertyValue('--journal').trim()
+    };
+  }
+
+  var fill = fills();
+  var pins = [];
   var points = places.map(function (p) {
     var marker = L.circleMarker([p.lat, p.lng], {
       radius: 8, color: '#fff', weight: 2, fillColor: fill[p.kind], fillOpacity: 1
     }).addTo(map);
+    pins.push({ marker: marker, kind: p.kind });
     var link = document.createElement('a');
     link.href = p.url;
     link.textContent = p.title;
     marker.bindPopup(link);
     return [p.lat, p.lng];
+  });
+
+  // The light/dark switch fires this (assets/js/theme.js).
+  document.addEventListener('weird300:theme', function () {
+    var fresh = fills();
+    pins.forEach(function (pin) { pin.marker.setStyle({ fillColor: fresh[pin.kind] }); });
   });
 
   if (points.length === 1) map.setView(points[0], 11);

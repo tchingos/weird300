@@ -1,4 +1,24 @@
 // Design tokens. Every colour and radius in the site comes from here.
+//
+// Three theme states have to be covered, so the dark palette lives in a mixin
+// and is included twice: once for a visitor whose system is dark and who has
+// never touched the switch, and once for a visitor who has chosen dark on a
+// light system. `data-theme` is set by assets/js/theme.js before the first
+// paint, and :not([data-theme="light"]) is what lets the switch turn a dark
+// system back to light.
+@mixin dark-palette {
+  --ink: #eef0f2;
+  --muted: #9aa3ad;
+  --bg: #0e1113;
+  --soft: #181c20;
+  --line: #2a3036;
+  --accent: #2dd4bf;
+  --journal: #f87171;
+  --shadow: none;
+  --header-bg: rgba(14, 17, 19, 0.85);
+  color-scheme: dark;
+}
+
 :root {
   --ink: #111418;
   --muted: #5f6670;
@@ -16,16 +36,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --ink: #eef0f2;
-    --muted: #9aa3ad;
-    --bg: #0e1113;
-    --soft: #181c20;
-    --line: #2a3036;
-    --accent: #2dd4bf;
-    --journal: #f87171;
-    --shadow: none;
-    --header-bg: rgba(14, 17, 19, 0.85);
-    color-scheme: dark;
-  }
+  :root:not([data-theme="light"]) { @include dark-palette; }
 }
+:root[data-theme="dark"] { @include dark-palette; }

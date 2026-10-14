@@ -10,6 +10,7 @@
       <a href="{{ '/journal/' | relative_url }}"{% if page.collection == "posts" or page.url == "/journal/" %} aria-current="page"{% endif %}>Journal</a>
       <a class="nav-map" href="{{ '/' | relative_url }}#map">Map</a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
+      {% include theme-toggle.html %}
     </nav>
   </div>
 </header>

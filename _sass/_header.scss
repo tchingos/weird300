@@ -23,6 +23,10 @@
   text-decoration: none;
   span { color: var(--accent); }
 }
+.site-header nav {
+  display: flex;
+  align-items: center;
+}
 .site-header nav a {
   color: var(--muted);
   text-decoration: none;
@@ -36,8 +40,10 @@
 // map, which Home already reaches, so it is the one to drop.
 @media (max-width: 30rem) {
   .wordmark { font-size: 1.2rem; } // the full menu still has to fit beside it
-  .site-header nav a { margin-left: 0.9rem; font-size: 0.9rem; }
+  .site-header-inner { padding-inline: 1rem; }
+  .site-header nav a { margin-left: 0.8rem; font-size: 0.875rem; }
   .site-header .nav-map { display: none; }
+  .theme-toggle { width: 1.75rem; height: 1.75rem; margin-left: 0.6rem; }
 }
 
 .site-footer {
