@@ -58,8 +58,11 @@ uv run scripts/new_visit.py "<Name>" inbox/<folder> --category "<Category>" \
 
 Pass `--lat/--lng` from the Maps pin when you have it; photo GPS is where
 Tim stood, not where the place is. If the page already exists (drafted
-before photos arrived), the same command appends the photos. Read the JSON
-summary: if `visited` was still TODO and the photos carry a date, set it.
+before photos arrived), add `--add` and the same command appends the photos.
+Without that flag it stops, because two places in the book can share a name
+and the second one must not pour its photos into the first one's page. If it
+really is a different place, give it its own `--slug`. Read the JSON summary:
+if `visited` was still TODO and the photos carry a date, set it.
 
 ## 4. Look at the photos
 

@@ -36,6 +36,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--lat", type=float)
     ap.add_argument("--lng", type=float)
     ap.add_argument("--slug", help="Override the slug derived from the title")
+    ap.add_argument("--add", action="store_true", help="Add these photos to the existing page of this name")
     return ap.parse_args()
 
 
@@ -56,6 +57,14 @@ def main() -> None:
 
     if is_new and args.category not in site.categories():
         sys.exit(f"--category must be one of: {', '.join(site.categories())}")
+    if not is_new and not args.add:
+        # Two places in the book can share a name. Without this, the second one
+        # silently pours its photos into the first one's page.
+        sys.exit(
+            f"{path.name} already exists.\n"
+            f"  Same visit, more photos:        add --add\n"
+            f"  A different place, same name:   add --slug <another-slug>"
+        )
     if not is_new and not args.photos:
         sys.exit(f"{path.name} already exists; pass photos to add to it.")
 

@@ -61,7 +61,7 @@ file that already does something else. Photo paths are built only in
 ```sh
 uv run scripts/archive_originals.py "Place Name" inbox      # ALWAYS FIRST, see below
 uv run scripts/new_visit.py "Place Name" inbox/<folder> --category "Rock Formations" --region "Town, County"
-uv run scripts/new_visit.py "Place Name" more.jpg      # add photos to an existing page
+uv run scripts/new_visit.py "Place Name" more.jpg --add  # add photos to an existing page
 uv run scripts/new_post.py "Post title" inbox --date 2026-10-06            # a journal post
 uv run scripts/check.py                                # must pass before pushing
 uv run scripts/rebuild_photos.py                       # only after changing the size budget
@@ -116,6 +116,11 @@ Commit and push to `main`; Pages rebuilds in about a minute. Confirm with
 `gh api repos/tchingos/weird300/pages/builds/latest --jq .status`. The remote
 URL carries the `tchingos` account, which is what the global pre-push guard
 expects. Ask Tim before pushing a new or changed visit.
+
+Two places in the book can share a name. `new_visit.py` refuses to touch an
+existing page without `--add`, and `archive_originals.py` refuses to overwrite a
+manifest that records different photos. When it is genuinely a different place,
+give it its own `--slug`.
 
 To add a visit end to end, use the `add-visit` skill.
 

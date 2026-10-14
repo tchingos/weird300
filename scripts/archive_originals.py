@@ -53,6 +53,12 @@ def main() -> None:
         }, indent=2))
         return
 
+    if archive.manifest_path(slug).exists() and not archive.manifest_matches(slug, planned):
+        sys.exit(
+            f"originals/{slug}.yml already records a different set of photos.\n"
+            f"  A different place, same name:   add --slug <another-slug>"
+        )
+
     if not archive.remote_configured():
         sys.exit(f"rclone remote {archive.REMOTE!r} is not set up yet; see CLAUDE.md")
 

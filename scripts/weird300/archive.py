@@ -139,6 +139,15 @@ def write_manifest(slug: str, visited: date, title: str, planned: list[Original]
     return path
 
 
+def manifest_matches(slug: str, planned: list[Original]) -> bool:
+    """True when a manifest exists and records exactly these photos, so a re-run is a no-op."""
+    path = manifest_path(slug)
+    if not path.exists():
+        return False
+    recorded = yaml.safe_load(path.read_text()).get("files", [])
+    return [f["md5"] for f in recorded] == [o.md5 for o in planned]
+
+
 def archived(slug: str) -> bool:
     """True once the originals for this slug are safely up. The gate on clearing the inbox."""
     return manifest_path(slug).exists()
