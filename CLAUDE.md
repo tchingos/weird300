@@ -47,9 +47,10 @@ Jekyll install, so the live build is the real test.
 | `assets/js/map.js` | Draws any `places-map` include with Leaflet, and repaints the pins when the theme changes |
 | `assets/js/theme.js` | The header's light/dark switch. Loaded synchronously in `<head>` so a saved choice applies before the first paint, and it remembers the choice in `localStorage` |
 | `assets/js/lightbox.js` | Opens every `photo` include full-size, with arrows, keys and swipe |
-| `scripts/weird300/` | Python package: `photos`, `exif`, `shapes`, `pages`, `checks`, `site` |
-| `scripts/new_visit.py`, `scripts/new_post.py`, `scripts/check.py` | Thin command-line entry points onto the package |
-| `inbox/` | Git-ignored drop zone for raw photos |
+| `scripts/weird300/` | Python package: `photos`, `exif`, `shapes`, `pages`, `checks`, `site`, `archive` |
+| `scripts/new_visit.py`, `scripts/new_post.py`, `scripts/check.py`, `scripts/archive_originals.py` | Thin command-line entry points onto the package |
+| `inbox/` | Git-ignored drop zone for raw photos. Nothing leaves it until the originals are archived |
+| `originals/<slug>.yml` | What was archived for that visit: the archived filename, the `NN.jpg` it became on the site, size, checksum, and dimensions. Text, so it lives in git. The photos themselves never do |
 
 New behaviour goes in a new include, partial, or module, not into an existing
 file that already does something else. Photo paths are built only in
@@ -58,6 +59,7 @@ file that already does something else. Photo paths are built only in
 ## Commands
 
 ```sh
+uv run scripts/archive_originals.py "Place Name" inbox      # ALWAYS FIRST, see below
 uv run scripts/new_visit.py "Place Name" inbox/<folder> --category "Rock Formations" --region "Town, County"
 uv run scripts/new_visit.py "Place Name" more.jpg      # add photos to an existing page
 uv run scripts/new_post.py "Post title" inbox --date 2026-10-06            # a journal post
@@ -80,6 +82,34 @@ carries metadata or whose recorded shape is wrong.
 
 Never delete anything from `inbox/` until the post is published.
 
+## The originals
+
+The published copies are 1600px with their metadata stripped, which is right
+for the web and no use for print. A photo book needs the originals, so they go
+to Google Drive before anything shrinks them:
+
+```sh
+uv run scripts/archive_originals.py "Place Name" inbox            # add --dry-run to see the plan
+```
+
+It uploads through the `weird300` rclone remote as
+`YYYY-MM-DD - Place Name - NN.jpg`, flat in one Drive folder so the archive
+sorts by visit date. `NN` is the same number the photo gets on the site,
+because both number them in the order `photos.find` returns. Every file is
+checked against its checksum on the far side, and only then is
+`originals/<slug>.yml` written.
+
+**Nothing is deleted from `inbox/` until that manifest exists.** The manifest
+is the gate, not anyone's memory.
+
+The remote holds the Drive folder id, so it is never written down here: this
+repo is public. If `rclone listremotes` does not list `weird300:`, set it up
+once with `rclone config create weird300 drive scope=drive root_folder_id=<id>`,
+which needs a browser and so has to be run by Tim.
+
+The originals still carry GPS and capture dates, which is exactly what the
+publish step strips out. Keep the Drive folder private.
+
 ## Publishing
 
 Commit and push to `main`; Pages rebuilds in about a minute. Confirm with
@@ -98,5 +128,5 @@ compose window with the subscribers in BCC. Never send; Tim proofreads and
 sends. Do not draft through the Gmail connector: it turns every link into a
 google.com redirect that shows readers a "Redirect Notice" page. The list is `~/.config/weird300/subscribers.txt`,
 one address per line (optionally followed by `# Name`), kept outside this
-public repo. Details are in step 7
+public repo. Details are in step 8
 of the `add-visit` skill.

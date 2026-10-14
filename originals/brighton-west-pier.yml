@@ -1,0 +1,34 @@
+slug: brighton-west-pier
+title: Brighton West Pier
+visited: 2025-03-02
+remote: 'weird300:'
+archived_on: 2026-10-14
+files:
+- site_file: 01.jpg
+  archived: 2025-03-02-brighton-west-pier-01.jpg
+  source: march-2025-phone-photo-15.jpg
+  bytes: 12585273
+  md5: 5a2a8a304dfbd7b5182ef061819dace3
+  width: 3382
+  height: 4504
+- site_file: 02.jpg
+  archived: 2025-03-02-brighton-west-pier-02.jpg
+  source: march-2025-phone-photo-17.jpg
+  bytes: 10176962
+  md5: 7ae45770a21f76e67e67680b0a917b59
+  width: 4624
+  height: 3472
+- site_file: 03.jpg
+  archived: 2025-03-02-brighton-west-pier-03.jpg
+  source: march-2025-phone-photo-23.jpg
+  bytes: 7930888
+  md5: 48631e6353c72dbac7bc1209bae71d81
+  width: 3472
+  height: 3406
+- site_file: 04.jpg
+  archived: 2025-03-02-brighton-west-pier-04.jpg
+  source: march-2025-phone-photo-29.jpg
+  bytes: 10906775
+  md5: a96b6c8319d1a7a3ef6d91414e390ed0
+  width: 3256
+  height: 4463

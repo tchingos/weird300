@@ -24,4 +24,4 @@ defaults:
 sass:
   style: compressed
 
-exclude: [scripts, inbox, README.md, CLAUDE.md, .claude, .github]
+exclude: [scripts, inbox, originals, README.md, CLAUDE.md, .claude, .github]

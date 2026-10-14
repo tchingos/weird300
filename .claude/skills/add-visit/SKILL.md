@@ -15,7 +15,9 @@ number. Ask once for anything missing that the page requires (the category
 is required; pick the obvious one from `_data/categories.yml` and confirm).
 
 Photos must be inside the repo, because macOS blocks this terminal from
-reading `~/Desktop` and `~/Downloads`. Ask Tim to run:
+reading `~/Desktop` and `~/Downloads`. Ask for the originals off the camera or
+phone rather than exports, since step 2 archives them for print. Ask Tim to
+run:
 
 ```sh
 mkdir -p ~/Code/Weird300/inbox && open ~/Code/Weird300/inbox
@@ -30,7 +32,24 @@ A Google Maps short link resolves with
 pair in the result is the pin. (Plain `grep` is shimmed on this machine;
 use `/usr/bin/grep`.)
 
-## 2. Import
+## 2. Archive the originals
+
+Before the import shrinks anything. The site's copies are 1600px with the
+metadata stripped, and a photo book needs what came off the camera.
+
+```sh
+uv run scripts/archive_originals.py "<Name>" inbox/<folder>     # --dry-run to see the plan first
+```
+
+It uploads to Google Drive through the `weird300` rclone remote as
+`YYYY-MM-DD - Name - NN.jpg`, verifies every file by checksum, and writes
+`originals/<slug>.yml`. Commit that manifest with the visit.
+
+If it reports that the remote is not set up, stop and tell Tim: the one-time
+`rclone config` needs a browser, so only he can do it. Do not carry on and
+delete his only copies.
+
+## 3. Import
 
 ```sh
 uv run scripts/new_visit.py "<Name>" inbox/<folder> --category "<Category>" \
@@ -42,7 +61,7 @@ Tim stood, not where the place is. If the page already exists (drafted
 before photos arrived), the same command appends the photos. Read the JSON
 summary: if `visited` was still TODO and the photos carry a date, set it.
 
-## 3. Look at the photos
+## 4. Look at the photos
 
 Read each imported file in `assets/photos/<slug>/` so you actually see it.
 Then:
@@ -54,14 +73,14 @@ Then:
 - Write a short caption for each, describing what is in frame. Never guess
   at things you cannot see.
 
-## 4. Write
+## 5. Write
 
 Front matter: fill `summary` (one sentence, used for link previews) and any
 remaining TODO. Body: three or four short paragraphs from Tim's notes, in his
 voice. One or two well-established facts about the place are fine. Nothing
 about the visit itself that he did not tell you.
 
-## 5. Check and preview
+## 6. Check and preview
 
 ```sh
 uv run scripts/check.py
@@ -70,7 +89,7 @@ uv run scripts/check.py
 It must print `ok` for every page. Then show Tim the write-up and captions
 in the chat and ask for changes. Do not push until he approves.
 
-## 6. Publish
+## 7. Publish
 
 ```sh
 git add _places/<slug>.md assets/photos/<slug> && git commit -m "Add <Name>"
@@ -81,9 +100,12 @@ Wait about a minute, confirm with
 `gh api repos/tchingos/weird300/pages/builds/latest --jq '.status, .error.message'`,
 then give Tim the page URL:
 `https://tchingos.github.io/weird300/places/<slug>/`.
-Only now, after the page is live, delete the raw photos from `inbox/`.
 
-## 7. Draft the "new post" email
+Only now, after the page is live AND `originals/<slug>.yml` exists, delete the
+raw photos from `inbox/`. No manifest means the originals are not safe
+anywhere, so leave them where they are and say so.
+
+## 8. Draft the "new post" email
 
 Tim emails close friends and family about each new post himself. Your job is
 only the draft; never send anything.
