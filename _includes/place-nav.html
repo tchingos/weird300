@@ -1,7 +1,7 @@
 {%- comment -%}
   Previous and next place, in visit order. Params: place.
 {%- endcomment -%}
-{% assign ordered = site.places | sort: "visited" %}
+{% include places-ordered.html %}
 {% for p in ordered %}
   {% if p.url == include.place.url %}
     {% assign i = forloop.index0 %}

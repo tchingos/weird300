@@ -3,7 +3,7 @@ layout: default
 title: Places
 permalink: /places/
 ---
-{% assign by_category = site.places | sort: "visited" | reverse | group_by: "category" %}
+{% include places-ordered.html %}{% assign by_category = ordered | reverse | group_by: "category" %}
 <header class="page-head">
   <h1>Places</h1>
   <p>Every place I have visited so far. Search them, filter by the book's sections, or see them in the order I went.</p>

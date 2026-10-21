@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign visits = site.places | sort: "visited" | reverse %}
+{% include places-ordered.html %}{% assign visits = ordered | reverse %}
 {% include home-hero.html home=site.data.home %}
 {% include progress.html done=visits.size %}
 

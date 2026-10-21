@@ -1,0 +1,13 @@
+{%- comment -%}
+  Every place in the order the visits happened, oldest first. Sets `ordered`.
+
+  `visited` is only a date, so two places seen on the same day tie, and Liquid's
+  sort is not stable: the tie fell back to filename order. Within one day the
+  `order` field settles it. A day with a single visit does not need the field.
+{%- endcomment -%}
+{%- assign ordered = "" | split: "" -%}
+{%- assign days = site.places | group_by_exp: "p", "p.visited | date: '%Y%m%d'" | sort: "name" -%}
+{%- for day in days -%}
+  {%- assign within = day.items | sort: "order" -%}
+  {%- assign ordered = ordered | concat: within -%}
+{%- endfor -%}

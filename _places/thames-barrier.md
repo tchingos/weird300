@@ -3,6 +3,7 @@ title: Thames Barrier
 category: Outliers
 region: Silvertown, London
 visited: 2026-10-17
+order: 1
 published: 2026-10-21
 with: Jillian, Emma
 entry: null
@@ -27,8 +28,8 @@ photos:
 
 This was the first place Jillian, Emma, and I set out to find on purpose. Everything before it we had wandered into on the way to something else. We went on a clear Saturday morning in October. The tide was so far out that a wide stretch of foreshore lay uncovered under the gates.
 
-The barrier is a row of ten steel gates that lie flat on the riverbed and wait. When a surge is forecast they rotate up out of the water into a solid wall across the Thames, which is what stops a North Sea storm from pushing up the estuary and into central London. Each gate weighs around 3,300 tonnes and stands about as tall as a five-storey building once it is up. Construction started in 1974. The barrier was working by 1982. Queen Elizabeth II opened it officially two years after that. My favourite detail is that Charles Draper, the engineer behind the gates, took the idea for how they turn from the taps on his gas cooker.
+The barrier is a row of ten steel gates that lie flat on the riverbed and wait. When a surge is forecast they rotate up out of the water into a solid wall across the Thames, which is what stops a North Sea storm from pushing up the estuary and into central London. Each gate weighs around 3,300 tonnes and stands about as tall as a five-storey building once it is up.
 
 Behind the barrier is Thames Barrier Park, which opened in 2000 on reclaimed dockland. Its centrepiece is the Green Dock, a sunken garden about 54 metres long where the yew hedges are clipped into rolling waves. Emma spent most of our visit running through it.
 
-The park was the real surprise. It is beautiful and carefully kept, tucked away in a corner of the city where almost nobody seems to go. We had most of it to ourselves. For somewhere this close to central London it was remarkably quiet. It turned out to be a lovely place to wander around and pick up a bit of history.
+The park was the real surprise. It is beautiful and carefully kept, tucked away in a corner of the city where almost nobody seems to go. It turned out to be a lovely place to wander around and pick up a bit of history.
