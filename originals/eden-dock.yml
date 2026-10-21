@@ -1,0 +1,48 @@
+slug: eden-dock
+title: Eden Dock
+visited: 2026-10-17
+remote: 'weird300:'
+archived_on: 2026-10-21
+files:
+- site_file: 01.jpg
+  archived: 2026-10-17-eden-dock-01.jpg
+  source: eden-dock-1.jpg
+  bytes: 17246233
+  md5: ad7f7b98519adb869d93e67411eab629
+  width: 6016
+  height: 4016
+- site_file: 02.jpg
+  archived: 2026-10-17-eden-dock-02.jpg
+  source: eden-dock-2.jpg
+  bytes: 19638282
+  md5: 70dcc57b6600e3129090b076ed36339e
+  width: 6016
+  height: 4016
+- site_file: 03.jpg
+  archived: 2026-10-17-eden-dock-03.jpg
+  source: eden-dock-3.jpg
+  bytes: 19070188
+  md5: 0cfac528f68071a02758075a4938ac03
+  width: 6016
+  height: 3376
+- site_file: 04.jpg
+  archived: 2026-10-17-eden-dock-04.jpg
+  source: eden-dock-4.jpg
+  bytes: 18106380
+  md5: fdf7e2674379259b8467a72ce592179b
+  width: 6016
+  height: 4016
+- site_file: 05.jpg
+  archived: 2026-10-17-eden-dock-05.jpg
+  source: eden-dock-5.jpg
+  bytes: 20703757
+  md5: 282b1eb5390fd7e0cf17c510d1bb1ca1
+  width: 6016
+  height: 4016
+- site_file: 06.jpg
+  archived: 2026-10-17-eden-dock-06.jpg
+  source: eden-dock-6.jpg
+  bytes: 4510717
+  md5: ed97184d4661ae47289e1361f7257a25
+  width: 4624
+  height: 3472
