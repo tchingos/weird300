@@ -3,3 +3,10 @@
   margin: 1.5rem 0 2rem;
   img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
 }
+
+// A tall photo is shown whole rather than cropped, so cap its width instead of
+// letting it run the full measure and tower over the text below it.
+.about-photo--portrait {
+  max-width: 26rem;
+  margin-inline: auto;
+}

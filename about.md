@@ -7,9 +7,9 @@ permalink: /about/
 
 # About
 
-<figure class="about-photo">
-  <a href="{{ '/assets/about/01.jpg' | relative_url }}" data-lightbox data-caption="Me at the Edinburgh sign in the snow.">
-    <img src="{{ '/assets/about/01.jpg' | relative_url }}" alt="Me at the Edinburgh sign in the snow.">
+<figure class="about-photo about-photo--portrait">
+  <a href="{{ '/assets/about/01.jpg' | relative_url }}" data-lightbox data-caption="Me on the garden path at Chiswick Park.">
+    <img src="{{ '/assets/about/01.jpg' | relative_url }}" alt="Me on the garden path at Chiswick Park.">
   </a>
 </figure>
 
