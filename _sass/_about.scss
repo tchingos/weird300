@@ -1,12 +1,36 @@
-// The photo at the top of the About page.
-.about-photo {
-  margin: 1.5rem 0 2rem;
-  img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
+// The About page: a tall photo beside the text, mirroring the portrait hero
+// in _hero.scss and stacking at the same breakpoint.
+.about-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  padding-top: 3rem;
 }
 
-// A tall photo is shown whole rather than cropped, so cap its width instead of
-// letting it run the full measure and tower over the text below it.
-.about-photo--portrait {
-  max-width: 26rem;
-  margin-inline: auto;
+.about-text {
+  > :first-child { margin-top: 0; }
+  > :last-child { margin-bottom: 0; }
+}
+
+// Shown whole rather than cropped. The hero crops its portrait to 4/5, which
+// would cut the head or the feet off a full-length photo like this one.
+.about-photo {
+  margin: 0;
+  img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+}
+
+@media (max-width: 52rem) {
+  .about-split {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding-top: 1.25rem;
+  }
+  // Stacked, the photo is no longer holding up a column, so cap it rather
+  // than let a tall photo fill the screen before the text starts.
+  .about-photo { max-width: 24rem; margin-inline: auto; }
 }
