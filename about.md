@@ -6,8 +6,8 @@ permalink: /about/
 <div class="about-split" markdown="1">
 
 <figure class="about-photo">
-  <a href="{{ '/assets/about/01.jpg' | relative_url }}" data-lightbox data-caption="Me on the garden path at Chiswick Park.">
-    <img src="{{ '/assets/about/01.jpg' | relative_url }}" alt="Me on the garden path at Chiswick Park.">
+  <a href="{{ '/assets/about/01.jpg' | relative_url }}" data-lightbox data-caption="Me on the garden path at Chiswick House.">
+    <img src="{{ '/assets/about/01.jpg' | relative_url }}" alt="Me on the garden path at Chiswick House.">
   </a>
 </figure>
 
