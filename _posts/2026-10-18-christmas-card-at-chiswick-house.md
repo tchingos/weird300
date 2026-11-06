@@ -5,12 +5,12 @@ location: Chiswick House
 lat: 51.4837
 lng: -0.2587
 photos:
-- file: 01.jpg
-  shape: portrait
-  caption: "Jillian, Emma, and me looking back on the avenue, with the house behind us."
 - file: 02.jpg
   shape: landscape
   caption: "The three of us at the foot of the steps, with Emma perched on a stone post."
+- file: 01.jpg
+  shape: portrait
+  caption: "Jillian, Emma, and me looking back on the avenue, with the house behind us."
 - file: 03.jpg
   shape: portrait
   caption: "Emma running down a hedge-lined path under the yellow autumn leaves."
