@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="place post">
-  {% capture meta %}<ul class="facts"><li>{{ page.date | date: "%-d %B %Y" }}</li>{% if page.location %}<li>{{ page.location }}</li>{% endif %}</ul>{% endcapture %}
+  {% capture meta %}{% include post-facts.html post=page %}{% endcapture %}
   {% include hero.html doc=page eyebrow="Journal" meta=meta %}
 
   <div class="prose">{{ content }}</div>

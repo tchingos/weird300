@@ -26,6 +26,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("title", help="Post title")
     ap.add_argument("photos", nargs="*", type=Path, help="Photo files and/or folders")
     ap.add_argument("--date", type=date.fromisoformat, help="YYYY-MM-DD")
+    ap.add_argument("--with", dest="companions", help="Who came along")
     ap.add_argument("--slug", help="Override the slug derived from the title")
     return ap.parse_args()
 
@@ -45,7 +46,7 @@ def main() -> None:
         imported = photos.import_all(sources, site.photo_dir("post", slug))
         dates = [p.taken for p in imported if p.taken]
         day = args.date or (min(dates) if dates else date.today())
-        page = new_post(site.post_path(day, slug), args.title)
+        page = new_post(site.post_path(day, slug), args.title, args.companions)
     page.add_photos(imported)
     page.save()
 

@@ -2,6 +2,7 @@
 title: The book arrives
 summary: An early birthday present, and the official start of working through the Weird Guide on purpose.
 location: W11
+published: 2026-10-11
 lat: 51.51
 lng: -0.21
 photos:

@@ -1,0 +1,11 @@
+{%- comment -%}
+  The pill row under a journal post's title. Params: post.
+  Mirrors place-facts.html, minus the fields that only a place in the book has.
+{%- endcomment -%}
+{% assign p = include.post %}
+<ul class="facts">
+  <li>{{ p.date | date: "%-d %B %Y" }}</li>
+  {% if p.location and p.location != "" %}<li>{{ p.location }}</li>{% endif %}
+  {% if p.published %}<li>Published {{ p.published | date: "%-d %B %Y" }}</li>{% endif %}
+  {% if p.with and p.with != "" %}<li>With {{ p.with }}</li>{% endif %}
+</ul>
