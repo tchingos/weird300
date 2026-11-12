@@ -1,0 +1,34 @@
+slug: st-anthonys-chapel
+title: St Anthony's Chapel
+visited: 2026-10-30
+remote: 'weird300:'
+archived_on: 2026-11-12
+files:
+- site_file: 01.jpg
+  archived: 2026-10-30-st-anthonys-chapel-01.jpg
+  source: edinburgh-2026-1.jpg
+  bytes: 5884919
+  md5: cc7616ad446c3fb75d0e75d6a9eaa3c5
+  width: 4032
+  height: 3024
+- site_file: 02.jpg
+  archived: 2026-10-30-st-anthonys-chapel-02.jpg
+  source: edinburgh-2026-12.jpg
+  bytes: 11090454
+  md5: 94d824192ed4fefe716b50320b507973
+  width: 4624
+  height: 3472
+- site_file: 03.jpg
+  archived: 2026-10-30-st-anthonys-chapel-03.jpg
+  source: edinburgh-2026-13.jpg
+  bytes: 6624609
+  md5: aaf4e1e9457e134d0a1e78c7d5f7d015
+  width: 3024
+  height: 4032
+- site_file: 04.jpg
+  archived: 2026-10-30-st-anthonys-chapel-04.jpg
+  source: edinburgh-2026-14.jpg
+  bytes: 6711831
+  md5: 1a6bf6cd72e80845d60d19a679a7d1c3
+  width: 4624
+  height: 3472

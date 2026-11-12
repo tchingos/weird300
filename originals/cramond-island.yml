@@ -1,0 +1,41 @@
+slug: cramond-island
+title: Cramond Island and the Causeway Teeth
+visited: 2026-10-31
+remote: 'weird300:'
+archived_on: 2026-11-12
+files:
+- site_file: 01.jpg
+  archived: 2026-10-31-cramond-island-01.jpg
+  source: edinburgh-2026-2.jpg
+  bytes: 5717674
+  md5: f259772a6d31cd27ed6cff4d16103b63
+  width: 4032
+  height: 3024
+- site_file: 02.jpg
+  archived: 2026-10-31-cramond-island-02.jpg
+  source: edinburgh-2026-3.jpg
+  bytes: 10733113
+  md5: 2538128a0c925b432de3aa2665d9b54d
+  width: 4624
+  height: 3472
+- site_file: 03.jpg
+  archived: 2026-10-31-cramond-island-03.jpg
+  source: edinburgh-2026-4.jpg
+  bytes: 13252143
+  md5: 688eb1814597662eb75c6cc2fa529d76
+  width: 4624
+  height: 3472
+- site_file: 04.jpg
+  archived: 2026-10-31-cramond-island-04.jpg
+  source: edinburgh-2026-5.jpg
+  bytes: 6560367
+  md5: 2c7c3ff3f7ab9f61176cedc8c420c1ed
+  width: 4032
+  height: 3024
+- site_file: 05.jpg
+  archived: 2026-10-31-cramond-island-05.jpg
+  source: edinburgh-2026-6.jpg
+  bytes: 7380859
+  md5: 8a9c621951607771e0bd50e2c52c2f88
+  width: 4624
+  height: 2252

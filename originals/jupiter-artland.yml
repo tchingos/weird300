@@ -1,0 +1,48 @@
+slug: jupiter-artland
+title: Jupiter Artland
+visited: 2026-11-01
+remote: 'weird300:'
+archived_on: 2026-11-12
+files:
+- site_file: 01.jpg
+  archived: 2026-11-01-jupiter-artland-01.jpg
+  source: edinburgh-2026-7.jpg
+  bytes: 11079211
+  md5: 05c6f7103ff8dcda4f7b9e168628d70e
+  width: 4624
+  height: 3472
+- site_file: 02.jpg
+  archived: 2026-11-01-jupiter-artland-02.jpg
+  source: edinburgh-2026-8.jpg
+  bytes: 13093559
+  md5: 37fa00d6825da7d036a6dc054a33a71f
+  width: 4531
+  height: 3402
+- site_file: 03.jpg
+  archived: 2026-11-01-jupiter-artland-03.jpg
+  source: edinburgh-2026-9.jpg
+  bytes: 19795893
+  md5: 9ae0efcda126884dee13951a7db949e5
+  width: 3472
+  height: 4624
+- site_file: 04.jpg
+  archived: 2026-11-01-jupiter-artland-04.jpg
+  source: edinburgh-2026-10.jpg
+  bytes: 18617542
+  md5: 09187d4521df72d8d94887c8164169a5
+  width: 3472
+  height: 4624
+- site_file: 05.jpg
+  archived: 2026-11-01-jupiter-artland-05.jpg
+  source: edinburgh-2026-11.jpg
+  bytes: 7486957
+  md5: d4bd76f2bdbf46f76a25991c2969b052
+  width: 4032
+  height: 3024
+- site_file: 06.jpg
+  archived: 2026-11-01-jupiter-artland-06.jpg
+  source: edinburgh-2026-65.jpg
+  bytes: 7695300
+  md5: 32b620037e9c25b5e8e86dbbaa026124
+  width: 4032
+  height: 3024
