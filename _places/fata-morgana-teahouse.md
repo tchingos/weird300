@@ -34,4 +34,4 @@ It is by Wolfgang Winter and Berthold Hörbelt. A fata morgana is a kind of mira
 
 I loved that we could go inside. There are no straight lines in there. The mesh walls turn the park into a soft grey blur, so it feels like standing inside a photograph that has not quite finished loading.
 
-Emma promptly declared it boring, so we moved on to the [Pixel Wall]({{ '/places/pixel-wall/' | relative_url }}). Later in the day we got gelato in town, which she called the best part of the whole trip.
+Emma promptly declared it boring, so we moved on to the [Pixel Wall]({{ '/places/pixel-wall/' | relative_url }}). Later in the day we got gelato in town, which she said was a lot more exciting.

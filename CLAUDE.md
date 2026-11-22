@@ -12,10 +12,14 @@ Jekyll install, so the live build is the real test.
   `scripts/check.py` fails a page that contains one.
 - Always use the Oxford comma: "Jillian, Emma, and I", not "Jillian, Emma
   and I".
-- Do not join two complete sentences with "and". Write them as two
-  sentences. "We stayed in Stornoway. We drove an hour south." not "We
-  stayed in Stornoway, and we drove an hour south." Using "and" inside a
-  sentence for a list or a pair ("rocks and ruins") is fine.
+- Prefer two sentences over joining two complete ones with "and", but treat
+  this as a preference and not a hard rule. "We stayed in Stornoway. We drove
+  an hour south." usually beats "We stayed in Stornoway, and we drove an hour
+  south." The real target is the long run-on sentence, which reads badly. A
+  short join that carries one thought is fine and sometimes better, as in
+  "Then you get closer and it comes into focus." Splitting that one made it
+  worse. Using "and" inside a sentence for a list or a pair ("rocks and
+  ruins") is always fine.
 - Write in the first person as Tim Chingos ("I"). Only say "we" once the
   post has said who that is ("Jillian and I", "Barry and I"). Warm and plain,
   with contractions, not gushing.
