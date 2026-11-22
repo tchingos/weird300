@@ -1,0 +1,34 @@
+slug: fata-morgana-teahouse
+title: Fata Morgana Teahouse
+visited: 2026-11-08
+remote: 'weird300:'
+archived_on: 2026-11-22
+files:
+- site_file: 01.jpg
+  archived: 2026-11-08-fata-morgana-teahouse-01.jpg
+  source: cambridge-weird300-3.jpg
+  bytes: 9030252
+  md5: 2e7995c94f6c309af6ca9f0adfaafa78
+  width: 4624
+  height: 3472
+- site_file: 02.jpg
+  archived: 2026-11-08-fata-morgana-teahouse-02.jpg
+  source: cambridge-weird300-5.jpg
+  bytes: 10771240
+  md5: d1c8d7fd48b839489012f0fbd09e4a0e
+  width: 4624
+  height: 3472
+- site_file: 03.jpg
+  archived: 2026-11-08-fata-morgana-teahouse-03.jpg
+  source: cambridge-weird300-1.jpg
+  bytes: 28275617
+  md5: 2f66522e3ab099f680e6c04f60866d3a
+  width: 5568
+  height: 4872
+- site_file: 04.jpg
+  archived: 2026-11-08-fata-morgana-teahouse-04.jpg
+  source: cambridge-weird300-4.jpg
+  bytes: 8682637
+  md5: 994a3c57e51f0b8e28bb4543840a2794
+  width: 3472
+  height: 3553

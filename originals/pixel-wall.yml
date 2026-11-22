@@ -1,0 +1,41 @@
+slug: pixel-wall
+title: Pixel Wall
+visited: 2026-11-08
+remote: 'weird300:'
+archived_on: 2026-11-22
+files:
+- site_file: 01.jpg
+  archived: 2026-11-08-pixel-wall-01.jpg
+  source: cambridge-weird300-7.jpg
+  bytes: 12262888
+  md5: ded140e686ed595f898c0edb837b53ee
+  width: 4624
+  height: 3472
+- site_file: 02.jpg
+  archived: 2026-11-08-pixel-wall-02.jpg
+  source: cambridge-weird300-9.jpg
+  bytes: 11310127
+  md5: a2fafaeab0a6015185a4bc6e8dc12051
+  width: 4624
+  height: 3472
+- site_file: 03.jpg
+  archived: 2026-11-08-pixel-wall-03.jpg
+  source: cambridge-weird300-8.jpg
+  bytes: 5220538
+  md5: 65a38526074cc4a84372e32e01544ba3
+  width: 4624
+  height: 2219
+- site_file: 04.jpg
+  archived: 2026-11-08-pixel-wall-04.jpg
+  source: cambridge-weird300-2.jpg
+  bytes: 20726260
+  md5: 44fadd3f1e585980664fc1d18153f43a
+  width: 5568
+  height: 4872
+- site_file: 05.jpg
+  archived: 2026-11-08-pixel-wall-05.jpg
+  source: cambridge-weird300-6.jpg
+  bytes: 6930162
+  md5: 6564fa3d6c15757b5e86cbcdb34625b4
+  width: 4032
+  height: 3024
