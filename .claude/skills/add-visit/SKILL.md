@@ -87,10 +87,17 @@ about the visit itself that he did not tell you.
 
 ```sh
 uv run scripts/check.py
+uv run scripts/check_mobile.py /places/<slug>/
 ```
 
-It must print `ok` for every page. Then show Tim the write-up and captions
-in the chat and ask for changes. Do not push until he approves.
+`check.py` must print `ok` for every page. `check_mobile.py` renders the page
+at phone width and writes a PNG: open it and confirm the hero photo still shows
+its subject. The hero crops hard on a phone, so a subject off to one side gets
+cut out entirely, which is exactly the bug that shipped on the Fata Morgana
+Teahouse. Fix it with a `focus` value on the cover photo.
+
+Then show Tim the write-up and captions in the chat and ask for changes. Do not
+push until he approves.
 
 ## 7. Publish
 

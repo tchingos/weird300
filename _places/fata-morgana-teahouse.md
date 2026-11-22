@@ -14,6 +14,7 @@ summary: A mesh pavilion standing in a lake on the edge of Cambridge, named afte
 photos:
 - file: 01.jpg
   shape: landscape
+  focus: 22% 50%
   caption: The teahouse across the water at Brook Leys, through the reeds on a grey morning.
 - file: 02.jpg
   shape: landscape

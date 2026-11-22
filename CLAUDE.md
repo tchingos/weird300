@@ -52,7 +52,7 @@ Jekyll install, so the live build is the real test.
 | `assets/js/theme.js` | The header's light/dark switch. Loaded synchronously in `<head>` so a saved choice applies before the first paint, and it remembers the choice in `localStorage` |
 | `assets/js/lightbox.js` | Opens every `photo` include full-size, with arrows, keys and swipe |
 | `scripts/weird300/` | Python package: `photos`, `exif`, `shapes`, `pages`, `checks`, `site`, `archive` |
-| `scripts/new_visit.py`, `scripts/new_post.py`, `scripts/check.py`, `scripts/archive_originals.py` | Thin command-line entry points onto the package |
+| `scripts/new_visit.py`, `scripts/new_post.py`, `scripts/check.py`, `scripts/archive_originals.py`, `scripts/check_mobile.py` | Thin command-line entry points onto the package |
 | `inbox/` | Git-ignored drop zone for raw photos. Nothing leaves it until the originals are archived |
 | `originals/<slug>.yml` | What was archived for that visit: the archived filename, the `NN.jpg` it became on the site, size, checksum, and dimensions. Text, so it lives in git. The photos themselves never do |
 
@@ -68,6 +68,7 @@ uv run scripts/new_visit.py "Place Name" inbox/<folder> --category "Rock Formati
 uv run scripts/new_visit.py "Place Name" more.jpg --add  # add photos to an existing page
 uv run scripts/new_post.py "Post title" inbox --date 2026-10-06            # a journal post
 uv run scripts/check.py                                # must pass before pushing
+uv run scripts/check_mobile.py /places/<slug>/         # look at it on a phone before pushing
 uv run scripts/rebuild_photos.py                       # only after changing the size budget
 uv run scripts/import_photo.py assets/about inbox/x.jpg  # a photo for a page, not a place or post
 ```
@@ -132,6 +133,23 @@ browser's local storage and the counter skips it from then on. It is per
 browser and per device.
 
 ## Publishing
+
+**Look at the page on a phone before you push it.** Most of the site is read on
+one, and the hero crops hard at that width: a landscape photo whose subject sits
+off to one side loses the subject entirely. The fix is a `focus` value on the
+cover photo (any CSS object-position, e.g. `focus: 22% 50%`).
+
+```sh
+jekyll build --baseurl "" -d _site      # or any local build
+uv run scripts/check_mobile.py /places/<slug>/ /journal/<slug>/
+```
+
+It renders each page at phone and desktop width, writes PNGs for you to open,
+and fails on horizontal overflow. Do not try to do this with a plain headless
+`--window-size` screenshot. Headless Chrome ignores the viewport meta tag, so it
+renders the desktop layout squeezed into a narrow window, which hides the real
+breakpoints and invents overflow that is not there. The script drives device
+emulation, which is the only way to see what the phone actually does.
 
 Commit and push to `main`; Pages rebuilds in about a minute. Confirm with
 `gh api repos/tchingos/weird300/pages/builds/latest --jq .status`. The remote
